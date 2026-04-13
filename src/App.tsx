@@ -5,8 +5,9 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import BorderGlow from './BorderGlow';
 import profilePhoto from './GuilhermeFerreiraPB.webp';
-
+import DarkVeil from './DarkVeil';
 // Logos
 import logoBarra from './logos/Logo-Barra-scaled.png';
 import logoSolar from './logos/Logo_solar_da_colina_2.0-removebg-preview.png';
@@ -25,6 +26,7 @@ import solarPrint4 from './solar-prints/screencapture-solar-zaac-br-2026-04-09-0
 import solarPrint5 from './solar-prints/screencapture-solar-zaac-br-2026-04-09-00_51_04.webp';
 import solarPrint6 from './solar-prints/screencapture-solar-zaac-br-2026-04-09-00_51_34.webp';
 import solarPrint7 from './solar-prints/screencapture-solar-zaac-br-2026-04-09-00_51_45.webp';
+import solarHomeSite from './solar-prints/SolarHomeSite.webp';
 
 // Zaac Prints
 import zaacPrint1 from './zaac-prints/screencapture-design-zaac-br-dashboard-2026-04-09-01_10_18.webp';
@@ -58,17 +60,17 @@ import { View, Project, Service } from './types';
 
 const projects: Project[] = [
   {
-    id: 'erp-manufacturing',
-    title: 'ERP Customizado para Manufatura',
-    category: 'Business Automation',
-    description: 'Sistema centralizado para controle de produção em tempo real, integrando IoT e logística reversa.',
-    tags: ['React', 'Go', 'PostgreSQL', 'Docker', '+'],
+    id: 'solar-colina-ecosystem',
+    title: 'Ecossistema Solar da Colina',
+    category: 'Hospitalidade & Camping',
+    description: 'Sistema full-stack completo: do site de reservas à integração com Airbnb e Booking.com, centralizando toda a operação do camping em um único lugar.',
+    tags: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Channel-Manager'],
     stats: [
-      { label: 'Produtividade', value: '+45%' },
-      { label: 'Custo Op.', value: '-22%' },
-      { label: 'Uptime', value: '100%' }
+      { label: 'Reservas', value: '+200%' },
+      { label: 'Ocupação', value: '98%' },
+      { label: 'Sincronização', value: 'Real-time' }
     ],
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200',
+    image: solarHomeSite,
     logicId: 'LOGIC 01'
   },
   {
@@ -116,6 +118,9 @@ export default function App() {
       case 'about':
         document.title = `Sobre Mim | ${baseTitle}`;
         break;
+      case 'experiences':
+        document.title = `Experiências | ${baseTitle}`;
+        break;
       case 'contact':
         document.title = `Contato | ${baseTitle}`;
         break;
@@ -142,20 +147,31 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col selection:bg-primary selection:text-on-primary">
+      <div className="fixed inset-0 z-[-1] pointer-events-none">
+        <DarkVeil
+          hueShift={36}
+          noiseIntensity={0}
+          scanlineIntensity={0}
+          speed={1.6}
+          scanlineFrequency={0}
+          warpAmount={0}
+        />
+      </div>
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-background border-b border-outline-variant">
-        <div className="max-w-7xl mx-auto px-8 py-6 flex justify-between items-center">
+      <nav className="fixed top-0 w-full z-50 bg-white/[0.03] backdrop-blur-2xl border-b border-white/[0.05]">
+        <div className="max-w-7xl mx-auto px-8 py-4 flex justify-between items-center">
           <div 
-            className="text-2xl font-display font-bold tracking-tighter cursor-pointer flex items-center gap-2"
+            className="text-2xl font-display font-black text-on-surface tracking-tighter cursor-pointer flex items-center gap-2"
             onClick={() => setCurrentView('home')}
           >
-            <span className="text-primary">Z</span>AAC
+            <div>ZAAC<span className="text-primary">.</span></div>
           </div>
           
           <div className="hidden md:flex gap-12 items-center">
             <NavLink view="home" label="Início" />
             <NavLink view="portfolio" label="Portfólio" />
             <NavLink view="about" label="Sobre" />
+            <NavLink view="experiences" label="Experiências" />
           </div>
 
           <div className="flex items-center gap-6">
@@ -181,12 +197,13 @@ export default function App() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-background border-b border-outline-variant flex flex-col"
+              className="md:hidden bg-white/[0.03] backdrop-blur-2xl border-b border-white/[0.05] flex flex-col"
             >
               <div className="p-8 flex flex-col gap-8 items-start">
                 <NavLink view="home" label="Início" />
                 <NavLink view="portfolio" label="Portfólio" />
                 <NavLink view="about" label="Sobre" />
+                <NavLink view="experiences" label="Experiências" />
                 <button 
                   onClick={() => { setCurrentView('contact'); setIsMenuOpen(false); }}
                   className="bg-primary text-on-primary text-xs font-bold uppercase tracking-widest px-8 py-4 w-full"
@@ -200,7 +217,7 @@ export default function App() {
       </nav>
 
       {/* Main Content */}
-      <main className="flex-grow pt-28">
+      <main className="flex-grow pt-24">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentView}
@@ -212,6 +229,7 @@ export default function App() {
             {currentView === 'home' && <HomeView setView={setCurrentView} />}
             {currentView === 'portfolio' && <PortfolioView setView={setCurrentView} />}
             {currentView === 'about' && <AboutView setView={setCurrentView} />}
+            {currentView === 'experiences' && <ExperiencesView setView={setCurrentView} />}
             {currentView === 'contact' && <ContactView setView={setCurrentView} />}
             {currentView === 'thanks' && <ThanksView setView={setCurrentView} />}
             {currentView === 'solar-case' && <SolarCaseView setView={setCurrentView} />}
@@ -291,10 +309,10 @@ function ThanksView({ setView }: { setView: (v: View) => void }) {
 
 function HomeView({ setView }: { setView: (v: View) => void }) {
   return (
-    <div className="space-y-40 pb-40">
-      {/* Hero: Exaggerated Minimalism */}
-      <section className="px-8 max-w-[1400px] mx-auto min-h-[70vh] flex flex-col justify-center">
-        <div className="space-y-8">
+    <div className="pb-40 overflow-x-hidden">
+      {/* Hero: Fixed Fold CTA */}
+      <section className="relative w-full min-h-[75vh] flex flex-col justify-center">
+        <div className="px-8 max-w-[1400px] mx-auto w-full space-y-12 relative z-10 pt-16">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -333,20 +351,10 @@ function HomeView({ setView }: { setView: (v: View) => void }) {
           </h1>
           
           <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.6 }}
-            className="max-w-2xl text-lg text-on-surface-variant font-sans leading-relaxed pt-8 space-y-6"
-          >
-            <p>A escala corporativa expõe a fragilidade de sistemas amadores. Nós projetamos e executamos a fundação técnica completa: de servidores Linux de alta disponibilidade até arquiteturas sob medida de CRM e ERP.</p>
-            <p>Construímos ecossistemas robustos que assumem a complexidade tecnológica subjacente para que toda a jornada corporativa de contato com seus clientes permaneça contínua e impecável.</p>
-          </motion.div>
-          
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.8 }}
-            className="flex flex-col sm:flex-row gap-6 pt-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="flex flex-col sm:flex-row gap-6 pt-4"
           >
             <button 
               onClick={() => setView('contact')}
@@ -364,40 +372,55 @@ function HomeView({ setView }: { setView: (v: View) => void }) {
         </div>
       </section>
 
-      {/* Core Services: Rigid Grid */}
-      <section className="px-8 max-w-7xl mx-auto">
+      {/* Vision Section: Centralized and Concise */}
+      <section className="px-8 max-w-7xl mx-auto py-28">
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto text-center space-y-8"
+        >
+          <div className="w-12 h-[1px] bg-primary mx-auto"></div>
+          <p className="text-lg md:text-xl text-on-surface-variant font-sans leading-relaxed">
+            Unimos webdesign de alta fidelidade à implementação de sistemas robustos. Desenvolvemos propostas personalizadas que transformam complexidade em eficiência, garantindo que sua fundação digital seja sempre contínua, escalável e impecável.
+          </p>
+        </motion.div>
+      </section>
+
+      {/* Process: Linear Flow */}
+      <section className="px-8 max-w-7xl mx-auto py-28">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mb-20"
         >
-          <h2 className="text-5xl md:text-7xl font-display font-bold tracking-tighter uppercase text-on-surface mb-6">NÚCLEOS</h2>
+          <h2 className="text-5xl md:text-7xl font-display font-bold tracking-tighter uppercase text-on-surface mb-6">PROCESSO</h2>
           <div className="w-full h-[1px] bg-outline-variant"></div>
         </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 border-b border-outline-variant pb-20">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="group space-y-6">
             <div className="text-8xl font-display font-black text-primary mb-8 transition-colors duration-500">01</div>
-            <h3 className="text-3xl font-display font-bold tracking-tight">Soluções Customizadas</h3>
+            <h3 className="text-3xl font-display font-bold tracking-tight">Estudo da Dor</h3>
             <p className="text-on-surface-variant font-sans leading-relaxed text-sm">
-              Sistemas genéricos de prateleira costumam limitar as operações em estado de hiper-crescimento. Modulamos o código proprietário que vai conduzir a sua operação corporativa: dashboards analíticos severamente exatos e portais de alto processamento que não impõem regras lentas, mas aceleram as que você já possui via React e TypeScript puro.
+              Toda arquitetura brilhante nasce de um problema limitante. Antes de qualquer linha de código ou infraestrutura, mergulhamos na raiz da sua dor corporativa para entender exatamente quais gargalos estão consumindo seus recursos, corrompendo a rotina e blindando a escala natural da sua empresa.
             </p>
           </motion.div>
           
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="group space-y-6">
             <div className="text-8xl font-display font-black text-primary mb-8 transition-colors duration-500">02</div>
-            <h3 className="text-3xl font-display font-bold tracking-tight">Infraestrutura Linux Cloud</h3>
+            <h3 className="text-3xl font-display font-bold tracking-tight">Diagnóstico Preciso</h3>
             <p className="text-on-surface-variant font-sans leading-relaxed text-sm">
-              Nenhuma aplicação web brilhante suporta 10 minutos de tração dentro de um servidor frágil. Dimensionamos, provisionamos e administramos a sua espinha dorsal em instâncias robustas de servidores Linux independentes isolando ambientes via Docker para blindar seu banco de dados contra gargalos impiedosos de picos de tráfego (Load-Balancers/Up-time).
+              Em uma reunião de alinhamento tático, expomos as fragilidades operacionais em um mapa transparente. Dissecamos os requisitos arquitetônicos para amarrar perfeitamente as tecnologias necessárias com os processos já existentes. Traçamos conectores essenciais em comunicação com CRMs e ERPs cruciais.
             </p>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="group space-y-6">
             <div className="text-8xl font-display font-black text-primary mb-8 transition-colors duration-500">03</div>
-            <h3 className="text-3xl font-display font-bold tracking-tight">Arquitetura de ERP & CRM</h3>
+            <h3 className="text-3xl font-display font-bold tracking-tight">Proposta de Solução</h3>
             <p className="text-on-surface-variant font-sans leading-relaxed text-sm">
-              A falta de conexão do histórico gera falhas imperdoáveis que corroem o LTV da sua marca. Construímos integrações cirúrgicas conectando plataformas de vendas B2B (Kommo, Pipedrive) a ERPs centralizadores atados diretamente as comunicações e planilhas, erradicando a redundância da intervenção humana.
+              Apresentamos o mapa definitivo. Uma fundação técnica customizada que centraliza operações desordenadas sem gargalos ou dependência engessada. Validamos o modelo, a velocidade da infraestrutura (Cloud), escopo assertivo e o plano de implantação sob medida para você escalar de imediato.
             </p>
           </motion.div>
         </div>
@@ -492,13 +515,24 @@ function PortfolioView({ setView }: { setView: (v: View) => void }) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Espaço para Sistema 1 (Solar da Colina) */}
-          <div className="border border-outline-variant group hover:border-primary transition-colors duration-500 overflow-hidden flex flex-col bg-surface">
-            <div className="h-72 bg-surface border-b border-outline-variant relative overflow-hidden flex items-center justify-center p-4">
-              <img src={solarAppScreenshot} alt="Solar da Colina Dashboard" className="w-full h-full object-cover object-left-top border border-outline-variant shadow-2xl rounded-sm opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+          <BorderGlow
+            edgeSensitivity={30}
+            glowColor="40 80 80"
+            backgroundColor="#0a0a0a"
+            borderRadius={2}
+            glowRadius={40}
+            glowIntensity={1}
+            coneSpread={25}
+            animated={false}
+            colors={['#c084fc', '#f472b6', '#38bdf8']}
+            className="group transition-colors duration-500 overflow-hidden"
+          >
+            <div className="h-72 border-b border-outline-variant relative overflow-hidden flex items-center justify-center p-4">
+              <img src={solarHomeSite} alt="Ecossistema Solar da Colina" loading="lazy" decoding="async" className="w-full h-full object-cover object-left-top border border-outline-variant shadow-2xl rounded-sm opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
             <div className="p-10 flex-grow flex flex-col">
               <span className="text-[0.6rem] uppercase tracking-widest text-primary font-bold mb-4">SaaS / Gestão de Hospedagem</span>
-              <h4 className="text-2xl font-display font-bold mb-4">Solar da Colina App</h4>
+              <h4 className="text-2xl font-display font-bold mb-4">Ecossistema Solar da Colina</h4>
               <p className="text-on-surface-variant font-sans text-sm leading-relaxed mb-8 flex-grow">
                 Plataforma full-stack moderna para gestão completa de reservas. Centraliza o catálogo de hóspedes e a operação administrativa em uma interface única e rápida.
               </p>
@@ -516,12 +550,23 @@ function PortfolioView({ setView }: { setView: (v: View) => void }) {
                 Ver Case Completo <ExternalLink size={14} />
               </button>
             </div>
-          </div>
+          </BorderGlow>
 
           {/* Espaço para Sistema 2 (Zaac Platform) */}
-          <div className="border border-outline-variant group hover:border-primary transition-colors duration-500 overflow-hidden flex flex-col bg-surface">
-            <div className="h-72 bg-surface border-b border-outline-variant relative overflow-hidden flex items-center justify-center p-4">
-              <img src={zaacDesignScreenshot} alt="Zaac Platform Dashboard" className="w-full h-full object-cover object-left-top border border-outline-variant shadow-2xl rounded-sm opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+          <BorderGlow
+            edgeSensitivity={30}
+            glowColor="40 80 80"
+            backgroundColor="#0a0a0a"
+            borderRadius={2}
+            glowRadius={40}
+            glowIntensity={1}
+            coneSpread={25}
+            animated={false}
+            colors={['#c084fc', '#f472b6', '#38bdf8']}
+            className="group transition-colors duration-500 overflow-hidden"
+          >
+            <div className="h-72 border-b border-outline-variant relative overflow-hidden flex items-center justify-center p-4">
+              <img src={zaacDesignScreenshot} alt="Zaac Platform Dashboard" loading="lazy" decoding="async" className="w-full h-full object-cover object-left-top border border-outline-variant shadow-2xl rounded-sm opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
             <div className="p-10 flex-grow flex flex-col">
               <span className="text-[0.6rem] uppercase tracking-widest text-primary font-bold mb-4">SaaS / Gestão de Estética & Design</span>
@@ -543,7 +588,7 @@ function PortfolioView({ setView }: { setView: (v: View) => void }) {
                 Ver Case Completo <ExternalLink size={14} />
               </button>
             </div>
-          </div>
+          </BorderGlow>
         </div>
       </section>
 
@@ -634,7 +679,7 @@ function PortfolioView({ setView }: { setView: (v: View) => void }) {
               <div key={i} className="flex gap-32 items-center">
                 {partnerLogos.map((logo, idx) => (
                   <div key={`${i}-${idx}`} className="w-64 h-32 flex items-center justify-center grayscale opacity-30 hover:opacity-100 hover:grayscale-0 transition-opacity duration-300">
-                    <img src={logo.src} alt={logo.alt} className="max-w-full max-h-full object-contain filter brightness-200 contrast-100" referrerPolicy="no-referrer" />
+                    <img src={logo.src} alt={logo.alt} loading="lazy" decoding="async" className="max-w-full max-h-full object-contain filter brightness-200 contrast-100" referrerPolicy="no-referrer" />
                   </div>
                 ))}
               </div>
@@ -1005,7 +1050,7 @@ function SolarCaseView({ setView }: { setView: (v: View) => void }) {
         
         <div className="flex items-center gap-4 mt-8">
           <a 
-            href="https://solar.zaac.com.br" 
+            href="https://solardacolina.com/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="border border-outline-variant text-on-surface font-bold px-8 py-4 uppercase tracking-widest text-[0.65rem] transition-colors hover:bg-white hover:text-black hover:border-white inline-flex items-center gap-2"
@@ -1021,7 +1066,7 @@ function SolarCaseView({ setView }: { setView: (v: View) => void }) {
         transition={{ delay: 0.2 }}
         className="border border-outline-variant bg-surface mb-24 overflow-hidden p-2"
       >
-        <img src={solarAppScreenshot} alt="Solar da Colina Dashboard App" className="w-full object-cover rounded-sm border border-outline-variant/30 shadow-2xl" />
+        <img src={solarAppScreenshot} alt="Solar da Colina Dashboard App" loading="lazy" decoding="async" className="w-full object-cover rounded-sm border border-outline-variant/30 shadow-2xl" />
       </motion.div>
 
       <section className="mb-32 border-b border-outline-variant pb-32">
@@ -1045,7 +1090,7 @@ function SolarCaseView({ setView }: { setView: (v: View) => void }) {
             >
               <div className={`md:col-span-8 ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}>
                 <div className="border border-outline-variant p-2 bg-surface shadow-xl">
-                  <img src={item.img} alt={item.title} className="w-full h-auto object-cover" />
+                  <img src={item.img} alt={item.title} loading="lazy" decoding="async" className="w-full h-auto object-cover" />
                 </div>
               </div>
               <div className={`md:col-span-4 space-y-6 ${index % 2 === 0 ? 'md:order-2' : 'md:order-1'}`}>
@@ -1125,7 +1170,7 @@ function ZaacCaseView({ setView }: { setView: (v: View) => void }) {
         transition={{ delay: 0.2 }}
         className="border border-outline-variant bg-surface mb-24 overflow-hidden p-2"
       >
-        <img src={zaacDesignScreenshot} alt="Zaac Platform Dashboard" className="w-full object-cover rounded-sm border border-outline-variant/30 shadow-2xl" />
+        <img src={zaacDesignScreenshot} alt="Zaac Platform Dashboard" loading="lazy" decoding="async" className="w-full object-cover rounded-sm border border-outline-variant/30 shadow-2xl" />
       </motion.div>
 
       <section className="mb-32 border-b border-outline-variant pb-32">
@@ -1147,7 +1192,7 @@ function ZaacCaseView({ setView }: { setView: (v: View) => void }) {
             >
               <div className={`md:col-span-8 ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}>
                 <div className="border border-outline-variant p-2 bg-surface shadow-xl">
-                  <img src={item.img} alt={item.title} className="w-full h-auto object-cover" />
+                  <img src={item.img} alt={item.title} loading="lazy" decoding="async" className="w-full h-auto object-cover" />
                 </div>
               </div>
               <div className={`md:col-span-4 space-y-6 ${index % 2 === 0 ? 'md:order-2' : 'md:order-1'}`}>
@@ -1209,3 +1254,106 @@ function ZaacCaseView({ setView }: { setView: (v: View) => void }) {
   );
 }
 
+function ExperiencesView({ setView }: { setView: (v: View) => void }) {
+  useEffect(() => { window.scrollTo(0, 0); }, []);
+  return (
+    <div className="px-8 max-w-7xl mx-auto pb-40">
+      <header className="pt-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="flex items-center gap-4 text-on-surface-variant text-xs font-bold uppercase tracking-[0.3em] mb-8"
+        >
+          Minha Trajetória
+        </motion.div>
+        <h1 className="text-6xl md:text-9xl font-display font-black tracking-tighter leading-none mb-12">
+          <motion.span initial={{y: 50, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{duration: 0.6}} className="block text-on-surface">EXPERIÊNCIAS &</motion.span>
+          <motion.span initial={{y: 50, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{duration: 0.6, delay: 0.1}} className="block text-primary">HABILIDADES</motion.span>
+        </h1>
+      </header>
+
+      <section className="mb-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
+          
+          <div className="border border-outline-variant p-10 bg-surface group hover:border-primary transition-colors duration-500">
+            <h4 className="text-2xl font-display font-bold mb-4 uppercase">WordPress & Front-End</h4>
+            <p className="text-on-surface-variant font-sans text-sm leading-relaxed mb-6">
+              Desenvolvimento e manutenção em WordPress / Customização de landing pages (front-end). Costumo utilizar Wordpress com Elementor para o desenvolvimento das páginas, e HTML/CSS/JS para customizações. Utilizo ReactJS para desenvolvimento Frontend em projetos fora do ecossistema Wordpress.
+            </p>
+          </div>
+
+          <div className="border border-outline-variant p-10 bg-surface group hover:border-primary transition-colors duration-500">
+            <h4 className="text-2xl font-display font-bold mb-4 uppercase">Integração de APIs & CRMs</h4>
+            <p className="text-on-surface-variant font-sans text-sm leading-relaxed mb-6">
+              Integração de formulários nativos (Elementor, Google, Meta) e envio de dados para o CRM <strong className="text-on-surface hover:text-primary transition-colors"><a href="https://kommo.com" target="_blank" rel="noreferrer">Kommo.com</a></strong>. Automação de fluxos utilizando Make.com e N8N. Deploy e gerenciamento de VPS Linux com Docker Portainer para instâncias self-hosted do N8N.
+            </p>
+          </div>
+
+          <div className="border border-outline-variant p-10 bg-surface group hover:border-primary transition-colors duration-500">
+            <h4 className="text-2xl font-display font-bold mb-4 uppercase">Automações Zapier & Make</h4>
+            <p className="text-on-surface-variant font-sans text-sm leading-relaxed mb-6">
+              Construção de integrações entre ferramentas e formulários centralizando-as em planilhas para gerar dashboards, conectando todos os leads com o CRM para tratamento dos dados ou construindo sistemas de atendimento com o n8n.
+            </p>
+          </div>
+
+          <div className="border border-outline-variant p-10 bg-surface group hover:border-primary transition-colors duration-500">
+            <h4 className="text-2xl font-display font-bold mb-4 uppercase">Implementação de Tracking (GA4 & GTM)</h4>
+            <p className="text-on-surface-variant font-sans text-sm leading-relaxed mb-6">
+              Configuração pelo Google Tag Manager via native do WordPress para inserir tags em todas páginas. Monitoramento no Google Analytics para feedbacks e otimizações de performance, juntamente com a equipe de tráfego.
+            </p>
+          </div>
+
+          <div className="border border-outline-variant p-10 bg-surface group hover:border-primary transition-colors duration-500">
+            <h4 className="text-2xl font-display font-bold mb-4 uppercase">Integrações de Mídia</h4>
+            <p className="text-on-surface-variant font-sans text-sm leading-relaxed mb-6">
+              (Google Ads e Meta Ads). Configuração de tags rastreáveis utilizando métodos nativos de plataformas ou injeção manual na tag Head das páginas, mantendo a métrica de vendas e leads 100% precisa.
+            </p>
+          </div>
+
+          <div className="border border-outline-variant p-10 bg-surface group hover:border-primary transition-colors duration-500">
+            <h4 className="text-2xl font-display font-bold mb-4 uppercase">Organização de Fluxos de Dados</h4>
+            <p className="text-on-surface-variant font-sans text-sm leading-relaxed mb-6">
+              Práticas ágeis (Kanban) na gestão processual. Ferramentas como Notion e ClickUp utilizadas amplamente, bem como desenvolvimento de ferramentas proprietárias para acompanhamento de progressos e aprovação de protótipos.
+            </p>
+          </div>
+
+          <div className="border border-outline-variant p-10 bg-surface group hover:border-primary transition-colors duration-500 md:col-span-2">
+            <h4 className="text-2xl font-display font-bold mb-4 uppercase">Diagnóstico e Solução de Problemas Técnicos</h4>
+            <p className="text-on-surface-variant font-sans text-sm leading-relaxed mb-6">
+              Iniciado em 2016 na área de tecnologia (Grupo Marista). Minha vivência une o entendimento das "dores" dos clientes aos parâmetros técnicos necessários para resolver não apenas falhas em anúncios, mas investigar e resolver os fluxos empresariais e operacionais por completo.
+            </p>
+          </div>
+
+          <div className="border border-outline-variant p-10 bg-surface group hover:border-primary transition-colors duration-500 md:col-span-2">
+            <h4 className="text-2xl font-display font-bold mb-4 uppercase">Otimização & Processos Extras</h4>
+            <ul className="space-y-4 font-sans text-sm text-on-surface-variant pt-2">
+              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-primary"></div> Criação ágil de Copy's baseadas nas transcrições de reuniões gravadas com IA.</li>
+              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-primary"></div> Gestão de repositórios de referências de UI/UX.</li>
+              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-primary"></div> Configuração de DNS e gerenciamento de infraestrutura de hospedagens/servidores.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Statement CTA */}
+      <section className="text-center">
+        <motion.div
+           initial={{ opacity: 0, scale: 0.95 }}
+           whileInView={{ opacity: 1, scale: 1 }}
+           viewport={{ once: true }}
+           className="bg-primary text-on-primary py-32 px-8 flex flex-col items-center justify-center"
+        >
+          <h2 className="text-5xl md:text-8xl font-display font-black uppercase tracking-tighter max-w-4xl mx-auto leading-none mb-12">
+            PRONTO PARA ESCALAR?
+          </h2>
+          <button 
+              onClick={() => setView('contact')}
+              className="bg-black text-white font-sans font-bold px-12 py-5 uppercase tracking-widest text-xs transition-transform hover:scale-105"
+            >
+              Entrar em Contato
+            </button>
+        </motion.div>
+      </section>
+    </div>
+  );
+}

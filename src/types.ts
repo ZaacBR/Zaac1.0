@@ -1,4 +1,4 @@
-export type View = 'home' | 'portfolio' | 'about' | 'contact' | 'solar-case' | 'zaac-case' | 'thanks';
+export type View = 'home' | 'portfolio' | 'about' | 'experiences' | 'contact' | 'solar-case' | 'zaac-case' | 'thanks';
 
 export interface Project {
   id: string;
