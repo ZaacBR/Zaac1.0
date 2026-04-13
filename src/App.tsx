@@ -125,6 +125,9 @@ export default function App() {
       case 'zaac-case':
         document.title = `Case: Zaac Platform | ${baseTitle}`;
         break;
+      case 'thanks':
+        document.title = `Obrigado | ${baseTitle}`;
+        break;
     }
   }, [currentView]);
 
@@ -208,8 +211,9 @@ export default function App() {
           >
             {currentView === 'home' && <HomeView setView={setCurrentView} />}
             {currentView === 'portfolio' && <PortfolioView setView={setCurrentView} />}
-            {currentView === 'about' && <AboutView />}
-            {currentView === 'contact' && <ContactView />}
+            {currentView === 'about' && <AboutView setView={setCurrentView} />}
+            {currentView === 'contact' && <ContactView setView={setCurrentView} />}
+            {currentView === 'thanks' && <ThanksView setView={setCurrentView} />}
             {currentView === 'solar-case' && <SolarCaseView setView={setCurrentView} />}
             {currentView === 'zaac-case' && <ZaacCaseView setView={setCurrentView} />}
           </motion.div>
@@ -235,6 +239,52 @@ export default function App() {
           </div>
         </div>
       </footer>
+    </div>
+  );
+}
+
+function ThanksView({ setView }: { setView: (v: View) => void }) {
+  useEffect(() => { window.scrollTo(0, 0); }, []);
+  return (
+    <div className="px-8 max-w-5xl mx-auto pb-40 min-h-[70vh] flex flex-col justify-center items-center text-center">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6 }}
+        className="space-y-12"
+      >
+        <div className="flex justify-center mb-8">
+          <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center border border-primary/20">
+            <CheckCircle2 className="text-primary" size={40} />
+          </div>
+        </div>
+        
+        <h1 className="text-5xl md:text-8xl font-display font-black tracking-tighter leading-none">
+          MUITO <br/>
+          <span className="text-primary">OBRIGADO.</span>
+        </h1>
+        
+        <div className="space-y-6 max-w-2xl mx-auto">
+          <p className="text-xl font-sans text-on-surface leading-relaxed">
+            Sua mensagem foi redirecionada com sucesso. Nossa equipe já foi notificada sobre o seu interesse.
+          </p>
+          <div className="bg-surface border border-outline-variant p-8 inline-block">
+            <p className="text-sm font-bold uppercase tracking-widest text-primary mb-2">Prazo de Resposta</p>
+            <p className="text-lg font-sans text-on-surface-variant">
+              Resposta média em até <span className="text-on-surface font-bold">4 horas úteis</span>.
+            </p>
+          </div>
+        </div>
+
+        <div className="pt-12">
+          <button 
+            onClick={() => setView('home')}
+            className="border border-outline-variant text-on-surface font-bold px-12 py-5 uppercase tracking-widest text-xs transition-colors hover:bg-white hover:text-black hover:border-white flex items-center gap-2 mx-auto"
+          >
+            Voltar para o Início <ArrowRight size={16} />
+          </button>
+        </div>
+      </motion.div>
     </div>
   );
 }
@@ -596,7 +646,12 @@ function PortfolioView({ setView }: { setView: (v: View) => void }) {
   );
 }
 
-function AboutView() {
+function AboutView({ setView }: { setView: (v: View) => void }) {
+  const handleContactClick = () => {
+    window.open("https://wa.me/556192439505?text=Olá!%20Gostaria%20de%20conversar%20sobre%20um%20projeto.", "_blank");
+    setView('thanks');
+  };
+
   return (
     <div className="pb-40">
       <section className="max-w-7xl mx-auto px-8 mb-40">
@@ -850,21 +905,26 @@ function AboutView() {
           <h2 className="text-4xl md:text-7xl font-display font-black uppercase tracking-tighter max-w-4xl mx-auto leading-none mb-12">
             SUA EMPRESA EXIGE <br/> SOLUÇÕES DE VERDADE.
           </h2>
-          <a 
-              href="https://wa.me/556192439505?text=Olá!%20Gostaria%20de%20conversar%20sobre%20um%20projeto."
-              target="_blank"
-              rel="noopener noreferrer"
+          <button 
+              onClick={handleContactClick}
               className="bg-black text-white font-sans font-bold px-12 py-5 uppercase tracking-widest text-xs transition-transform hover:scale-105 inline-block"
             >
               Iniciar Conversa
-            </a>
+            </button>
         </motion.div>
       </section>
     </div>
   );
 }
 
-function ContactView() {
+function ContactView({ setView }: { setView: (v: View) => void }) {
+  const handleContactClick = () => {
+    // Open WhatsApp in a new tab
+    window.open("https://wa.me/556192439505?text=Olá!%20Gostaria%20de%20conversar%20sobre%20um%20projeto.", "_blank");
+    // Redirect the current page to the thanks view
+    setView('thanks');
+  };
+
   return (
     <div className="px-8 max-w-5xl mx-auto pb-40">
       <header className="mb-24 text-center">
@@ -909,14 +969,12 @@ function ContactView() {
             </p>
           </div>
           <div className="mt-16">
-            <a 
-              href="https://wa.me/556192439505?text=Olá!%20Gostaria%20de%20conversar%20sobre%20um%20projeto."
-              target="_blank"
-              rel="noopener noreferrer"
+            <button 
+              onClick={handleContactClick}
               className="bg-black text-white font-sans font-bold uppercase tracking-widest px-8 py-5 text-xs inline-flex items-center gap-4 hover:bg-white hover:text-black transition-colors min-w-full justify-center"
             >
                Iniciar Conversa <ArrowRight size={16} />
-            </a>
+            </button>
           </div>
         </div>
       </div>
