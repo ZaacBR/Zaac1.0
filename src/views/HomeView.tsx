@@ -231,12 +231,12 @@ export default function HomeView({ setView }: { setView: (v: View) => void }) {
       </section>
 
       {/* Statement CTA */}
-      <section className="px-8 max-w-7xl mx-auto text-center">
+      <section className="w-full">
         <motion.div
            initial={{ opacity: 0, scale: 0.95 }}
            whileInView={{ opacity: 1, scale: 1 }}
            viewport={{ once: true }}
-           className="bg-primary text-on-primary py-32 px-8 flex flex-col items-center justify-center"
+           className="bg-primary text-on-primary py-32 px-8 flex flex-col items-center justify-center text-center"
         >
           <h2 className="text-5xl md:text-8xl font-display font-black uppercase tracking-tighter max-w-4xl mx-auto leading-none mb-12">
             ESCALABILIDADE SEM LIMITES.

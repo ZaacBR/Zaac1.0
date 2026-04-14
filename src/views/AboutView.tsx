@@ -5,7 +5,7 @@ import { View } from '../types';
 import BorderGlow from '../BorderGlow';
 import { projects } from '../data';
 
-import profilePhoto from '../GuilhermeFerreiraPB.webp';
+import profilePhoto from '../eu4.webp';
 
 export default function AboutView({ setView }: { setView: (v: View) => void }) {
   const handleContactClick = () => {
@@ -28,9 +28,19 @@ export default function AboutView({ setView }: { setView: (v: View) => void }) {
               <img 
                 src={profilePhoto} 
                 className="w-full h-full object-cover"
-                alt="Guilherme Ferreira"
+                alt="Guilherme Izaac Ferreira"
                 referrerPolicy="no-referrer"
               />
+            </motion.div>
+            {/* Name badge below photo */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+              className="mt-5 space-y-1"
+            >
+              <p className="text-base font-display font-bold tracking-tight text-on-surface">Guilherme Izaac Ferreira</p>
+              <p className="text-[0.6rem] font-bold uppercase tracking-[0.25em] text-primary">Gestor de Projetos · Dev & Automação</p>
             </motion.div>
           </div>
           <div className="lg:col-span-7">

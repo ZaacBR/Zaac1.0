@@ -179,34 +179,137 @@ export default function PortfolioView({ setView }: { setView: (v: View) => void 
       </section>
 
       <section className="border-t border-outline-variant py-32">
-        <div className="mb-20">
-          <h2 className="text-[0.65rem] text-primary font-bold tracking-[0.3em] uppercase mb-6">A Estrutura Por Trás</h2>
-          <h3 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter">Metodologia de Entrega.</h3>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="border border-outline-variant p-10 bg-surface group hover:border-primary transition-colors duration-500">
-            <div className="text-5xl font-display font-black text-outline-variant mb-8 group-hover:text-primary transition-colors">/01</div>
-            <h4 className="text-2xl font-display font-bold mb-6">Auditoria Linux & Servidores</h4>
-            <p className="text-on-surface-variant font-sans text-sm leading-relaxed">
-              O diagnóstico severo. Analisamos rotas de rede, segurança de acesso aos bancos e eficiência do provisionamento (Docker). Não construímos o topo antes da base estrutural. Todo o ambiente de servidor cloud suportará, desde o dia zero, o triplo da carga exigida pela operação.
-            </p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-24"
+        >
+          <h2 className="text-[0.65rem] text-primary font-bold tracking-[0.3em] uppercase mb-6">Como Trabalhamos</h2>
+          <h3 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter leading-tight">
+            A Solução Certa<br />
+            <span className="text-primary">Nasce do Problema Real.</span>
+          </h3>
+          <p className="text-on-surface-variant font-sans text-sm leading-relaxed max-w-xl mt-8">
+            Não chegamos com uma solução pronta. Chegamos com perguntas. Cada projeto começa com uma imersão profunda na operação do cliente — porque a tecnologia ideal só aparece depois de entender o fluxo com profundidade clínica.
+          </p>
+        </motion.div>
+
+        <div className="space-y-0">
+          {/* Passo 01 */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="group grid grid-cols-1 md:grid-cols-12 gap-0 border border-outline-variant hover:border-primary transition-colors duration-500"
+          >
+            <div className="md:col-span-1 bg-surface border-r border-outline-variant flex items-center justify-center p-8">
+              <span className="text-[0.6rem] font-bold uppercase tracking-[0.3em] text-outline-variant group-hover:text-primary transition-colors writing-mode-vertical md:rotate-180 [writing-mode:vertical-rl]">01</span>
+            </div>
+            <div className="md:col-span-4 p-12 border-r border-outline-variant bg-surface flex flex-col justify-between">
+              <div>
+                <div className="w-8 h-[2px] bg-primary mb-8"></div>
+                <h4 className="text-3xl font-display font-bold tracking-tight mb-4">Imersão no Negócio</h4>
+                <p className="text-[0.6rem] uppercase tracking-[0.25em] text-primary font-bold">Diagnóstico Operacional</p>
+              </div>
+              <p className="text-on-surface-variant font-sans text-sm leading-relaxed mt-8">
+                Antes de qualquer teclado, sentamos com você. Entendemos quem é sua equipe, como ela trabalha hoje, onde os gargalos aparecem e o que sua operação pede que ainda não recebe. Essa fase não é uma reunião de briefing — é uma análise clínica do seu negócio.
+              </p>
+            </div>
+            <div className="md:col-span-7 p-12 bg-surface/50 flex flex-col justify-center">
+              <p className="text-xs uppercase tracking-[0.2em] text-on-surface-variant font-bold mb-6">O que mapeamos</p>
+              <ul className="space-y-4">
+                {[
+                  'Rotina real da equipe — como as tarefas chegam, como saem e onde morrem',
+                  'Ferramentas em uso, integrações quebradas e processos manuais críticos',
+                  'Onde o cliente se perde e onde a receita vaza sem ser percebida',
+                  'Volume de dados, frequência de acesso e riscos operacionais ocultos',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-4 text-sm text-on-surface-variant font-sans leading-relaxed">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="border border-outline-variant p-10 bg-surface group hover:border-primary transition-colors duration-500">
-            <div className="text-5xl font-display font-black text-outline-variant mb-8 group-hover:text-primary transition-colors">/02</div>
-            <h4 className="text-2xl font-display font-bold mb-6">Soluções Sob Medida</h4>
-            <p className="text-on-surface-variant font-sans text-sm leading-relaxed">
-              Onde o código reflete a regra de negócio comercial. Front-ends imersivos construídos via React e modelagens orientadas a escalabilidade. Nenhuma API é construída por capricho técnico, tudo é desenhado visando extrair conversão de leads e fluidez implacável da equipe comercial interligada.
-            </p>
+          {/* Passo 02 */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="group grid grid-cols-1 md:grid-cols-12 gap-0 border border-t-0 border-outline-variant hover:border-primary transition-colors duration-500"
+          >
+            <div className="md:col-span-1 bg-surface border-r border-outline-variant flex items-center justify-center p-8">
+              <span className="text-[0.6rem] font-bold uppercase tracking-[0.3em] text-outline-variant group-hover:text-primary transition-colors [writing-mode:vertical-rl] md:rotate-180">02</span>
+            </div>
+            <div className="md:col-span-4 p-12 border-r border-outline-variant bg-surface flex flex-col justify-between">
+              <div>
+                <div className="w-8 h-[2px] bg-primary mb-8"></div>
+                <h4 className="text-3xl font-display font-bold tracking-tight mb-4">Mapeamento do Fluxo</h4>
+                <p className="text-[0.6rem] uppercase tracking-[0.25em] text-primary font-bold">Arquitetura da Solução</p>
+              </div>
+              <p className="text-on-surface-variant font-sans text-sm leading-relaxed mt-8">
+                Com o diagnóstico em mãos, traduzimos o problema em arquitetura. Desenhamos o fluxo de dados, os pontos de automação e as integrações necessárias — tudo documentado em um mapa técnico que você consegue ler e validar antes de aprovar qualquer linha de código.
+              </p>
+            </div>
+            <div className="md:col-span-7 p-12 bg-surface/50 flex flex-col justify-center">
+              <p className="text-xs uppercase tracking-[0.2em] text-on-surface-variant font-bold mb-6">O que entregamos nessa fase</p>
+              <ul className="space-y-4">
+                {[
+                  'Mapa visual do fluxo operacional antes e depois da solução',
+                  'Definição das tecnologias — por necessidade, não por tendência',
+                  'Pontos de integração com sistemas já existentes (CRM, ERP, APIs)',
+                  'Escopo fechado, cronograma real e critérios objetivos de sucesso',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-4 text-sm text-on-surface-variant font-sans leading-relaxed">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="border border-outline-variant p-10 bg-surface group hover:border-primary transition-colors duration-500">
-            <div className="text-5xl font-display font-black text-outline-variant mb-8 group-hover:text-primary transition-colors">/03</div>
-            <h4 className="text-2xl font-display font-bold mb-6">Integração Massiva (CRM)</h4>
-            <p className="text-on-surface-variant font-sans text-sm leading-relaxed">
-              Sementes de tráfego convertidas em ecossistemas de vendas (Kommo/Pipedrive). Usando mapeamento de Webhooks JSON complexos acoplados à engenharia de dados corporativos (n8n), forçamos uma união perfeita: o sistema de captura avisa o CRM central sem necessidade de atritos, cliques manuais ou importações frágeis.
-            </p>
+          {/* Passo 03 */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="group grid grid-cols-1 md:grid-cols-12 gap-0 border border-t-0 border-outline-variant hover:border-primary transition-colors duration-500"
+          >
+            <div className="md:col-span-1 bg-surface border-r border-outline-variant flex items-center justify-center p-8">
+              <span className="text-[0.6rem] font-bold uppercase tracking-[0.3em] text-outline-variant group-hover:text-primary transition-colors [writing-mode:vertical-rl] md:rotate-180">03</span>
+            </div>
+            <div className="md:col-span-4 p-12 border-r border-outline-variant bg-surface flex flex-col justify-between">
+              <div>
+                <div className="w-8 h-[2px] bg-primary mb-8"></div>
+                <h4 className="text-3xl font-display font-bold tracking-tight mb-4">Solução sob Medida</h4>
+                <p className="text-[0.6rem] uppercase tracking-[0.25em] text-primary font-bold">Implementação & Entrega</p>
+              </div>
+              <p className="text-on-surface-variant font-sans text-sm leading-relaxed mt-8">
+                Só então construímos. Cada componente foi desenhado para resolver exatamente o problema identificado na imersão — sem funcionalidades supérfluas, sem custo desnecessário. A entrega inclui treinamento, documentação e suporte até sua equipe operar com total autonomia.
+              </p>
+            </div>
+            <div className="md:col-span-7 p-12 bg-surface/50 flex flex-col justify-center">
+              <p className="text-xs uppercase tracking-[0.2em] text-on-surface-variant font-bold mb-6">O que você recebe</p>
+              <ul className="space-y-4">
+                {[
+                  'Sistema funcionando no ambiente real — não em demo isolada',
+                  'Automações ativas conectando captura, operação e CRM em tempo real',
+                  'Documentação técnica e vídeos de uso para toda a equipe',
+                  'Suporte pós-entrega e janela de refinamento sem custo adicional',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-4 text-sm text-on-surface-variant font-sans leading-relaxed">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </motion.div>
         </div>
       </section>
