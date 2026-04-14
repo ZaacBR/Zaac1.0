@@ -203,6 +203,27 @@ export default function App() {
                 >
                   Contato
                 </button>
+                {/* Social links no mobile */}
+                <div className="flex gap-6 pt-2 border-t border-outline-variant/30 w-full">
+                  <a
+                    href="https://www.linkedin.com/in/guilherme-izaac/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <Linkedin size={16} /> LinkedIn
+                  </a>
+                  <a
+                    href="https://github.com/ZaacBR"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <Github size={16} /> GitHub
+                  </a>
+                </div>
               </div>
             </motion.div>
           )}
@@ -255,9 +276,14 @@ export default function App() {
           </div>
           <div className="flex gap-16">
             <div className="flex flex-col gap-4">
+              <span className="text-[0.6rem] font-bold text-on-surface-variant tracking-[0.2em] uppercase">Contato</span>
+              <a href="mailto:Guilherme@zaac.com.br" className="text-xs uppercase tracking-widest font-bold text-on-surface hover:text-primary transition-colors">Email</a>
+              <a href="https://wa.me/556192439505" target="_blank" rel="noopener noreferrer" className="text-xs uppercase tracking-widest font-bold text-on-surface hover:text-primary transition-colors">WhatsApp</a>
+            </div>
+            <div className="flex flex-col gap-4">
               <span className="text-[0.6rem] font-bold text-on-surface-variant tracking-[0.2em] uppercase">Redes</span>
-              <a href="https://www.linkedin.com/in/guilherme-izaac/" className="text-xs uppercase tracking-widest font-bold text-on-surface hover:text-primary transition-colors">LinkedIn</a>
-              <a href="https://github.com/ZaacBR" className="text-xs uppercase tracking-widest font-bold text-on-surface hover:text-primary transition-colors">GitHub</a>
+              <a href="https://www.linkedin.com/in/guilherme-izaac/" target="_blank" rel="noopener noreferrer" className="text-xs uppercase tracking-widest font-bold text-on-surface hover:text-primary transition-colors">LinkedIn</a>
+              <a href="https://github.com/ZaacBR" target="_blank" rel="noopener noreferrer" className="text-xs uppercase tracking-widest font-bold text-on-surface hover:text-primary transition-colors">GitHub</a>
             </div>
           </div>
         </div>

@@ -124,7 +124,21 @@ export default function SolarCaseView({ setView }: { setView: (v: View) => void 
         </div>
       </div>
 
-
+      {/* Case Navigation */}
+      <div className="mt-24 pt-12 border-t border-outline-variant flex flex-col sm:flex-row justify-between items-center gap-6">
+        <button
+          onClick={() => setView('portfolio')}
+          className="text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2"
+        >
+          <ArrowRight className="rotate-180" size={14} /> Todos os Projetos
+        </button>
+        <button
+          onClick={() => setView('zaac-case')}
+          className="bg-primary text-on-primary font-bold px-10 py-4 uppercase tracking-widest text-xs transition-colors hover:bg-white hover:text-black flex items-center gap-3"
+        >
+          Próximo Case: Zaac Platform <ArrowRight size={14} />
+        </button>
+      </div>
     </div>
   );
 }
