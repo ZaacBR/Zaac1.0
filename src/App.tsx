@@ -146,7 +146,26 @@ export default function App() {
             <NavLink view="experiences" label="Experiências" />
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4">
+            {/* Social icons — desktop only */}
+            <a
+              href="https://www.linkedin.com/in/guilherme-izaac/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="hidden md:flex text-on-surface-variant hover:text-primary transition-colors"
+            >
+              <Linkedin size={18} />
+            </a>
+            <a
+              href="https://github.com/ZaacBR"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="hidden md:flex text-on-surface-variant hover:text-primary transition-colors"
+            >
+              <Github size={18} />
+            </a>
             <button 
               onClick={() => setCurrentView('contact')}
               className="hidden md:block bg-primary text-on-primary font-sans text-xs font-bold uppercase tracking-widest px-8 py-3 transition-colors hover:bg-white hover:text-black"

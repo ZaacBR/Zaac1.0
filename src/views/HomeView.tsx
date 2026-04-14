@@ -1,10 +1,36 @@
-import React, { useEffect } from 'react';
-import { motion } from 'motion/react';
-import { ArrowRight, CheckCircle2, ExternalLink } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { motion, useInView, useMotionValue, useSpring } from 'motion/react';
+import { ArrowRight } from 'lucide-react';
 import { View } from '../types';
-import BorderGlow from '../BorderGlow';
-import { projects } from '../data';
 
+const skills = [
+  'Gestão de Projetos', 'React.js', 'TypeScript', 'n8n', 'Kommo CRM',
+  'Next.js', 'Docker', 'Linux', 'REST APIs', 'Pipedrive', 'Make',
+  'Node.js', 'Automação', 'Agile / Scrum', 'Google Analytics',
+  'WordPress', 'UI/UX Design', 'Meta Ads', 'Google Ads', 'Webhooks',
+];
+
+function AnimatedCounter({ to, suffix = '', prefix = '' }: { to: number; suffix?: string; prefix?: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true });
+  const motionVal = useMotionValue(0);
+  const spring = useSpring(motionVal, { stiffness: 60, damping: 20 });
+  const [display, setDisplay] = useState(0);
+
+  useEffect(() => {
+    if (inView) motionVal.set(to);
+  }, [inView, to, motionVal]);
+
+  useEffect(() => {
+    return spring.on('change', (v) => setDisplay(Math.round(v)));
+  }, [spring]);
+
+  return (
+    <span ref={ref}>
+      {prefix}{display}{suffix}
+    </span>
+  );
+}
 
 export default function HomeView({ setView }: { setView: (v: View) => void }) {
   return (
@@ -68,6 +94,55 @@ export default function HomeView({ setView }: { setView: (v: View) => void }) {
               Ver Portfólio
             </button>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Skills Ticker */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.9 }}
+        className="w-full overflow-hidden border-y border-outline-variant/40 py-4 my-2"
+      >
+        <motion.div
+          className="flex gap-12 whitespace-nowrap"
+          animate={{ x: ['0%', '-50%'] }}
+          transition={{ duration: 35, repeat: Infinity, ease: 'linear' }}
+        >
+          {[...skills, ...skills].map((skill, i) => (
+            <span key={i} className="flex items-center gap-4 text-[0.65rem] font-bold uppercase tracking-[0.25em] text-on-surface-variant shrink-0">
+              <span className="w-1 h-1 bg-primary inline-block rounded-full"></span>
+              {skill}
+            </span>
+          ))}
+        </motion.div>
+      </motion.div>
+
+      {/* Metrics Strip */}
+      <section className="px-8 max-w-7xl mx-auto py-20 border-b border-outline-variant">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          {[
+            { value: 15, suffix: '+', label: 'Projetos B2B\nLiderados' },
+            { value: 100, suffix: '%', label: 'On-Time\nDelivery' },
+            { value: 22, suffix: '%', label: 'Conversão\nMáxima Web' },
+            { value: 95, suffix: '%', label: 'Redução de\nErros Operacionais' },
+          ].map(({ value, suffix, label }, i) => (
+            <motion.div
+              key={label}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="text-center"
+            >
+              <div className={`text-4xl md:text-5xl font-display font-black mb-2 ${i % 2 === 0 ? 'text-primary' : 'text-on-surface'}`}>
+                <AnimatedCounter to={value} suffix={suffix} />
+              </div>
+              <div className="text-[0.55rem] uppercase tracking-[0.2em] text-on-surface-variant font-bold leading-tight whitespace-pre-line">
+                {label}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
