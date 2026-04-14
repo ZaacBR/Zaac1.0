@@ -85,12 +85,32 @@ export default function DarkVeil({
   resolutionScale = 1
 }) {
   const ref = useRef(null);
+  
+  // Guardando refs pra não destruir o WebGL engine todo render
+  const webglState = useRef({ 
+    program: null, 
+    speed,
+    lastTime: 0
+  });
+
+  // Atualizador seguro de atributos em tempo real
+  useEffect(() => {
+    webglState.current.speed = speed;
+    if (webglState.current.program) {
+        webglState.current.program.uniforms.uHueShift.value = hueShift;
+        webglState.current.program.uniforms.uNoise.value = noiseIntensity;
+        webglState.current.program.uniforms.uScan.value = scanlineIntensity;
+        webglState.current.program.uniforms.uScanFreq.value = scanlineFrequency;
+        webglState.current.program.uniforms.uWarp.value = warpAmount;
+    }
+  }, [hueShift, noiseIntensity, scanlineIntensity, speed, scanlineFrequency, warpAmount]);
+
   useEffect(() => {
     const canvas = ref.current;
     const parent = canvas.parentElement;
 
     const renderer = new Renderer({
-      dpr: Math.min(window.devicePixelRatio, 2),
+      dpr: Math.min(window.devicePixelRatio, 1.5),
       canvas
     });
 
@@ -110,14 +130,23 @@ export default function DarkVeil({
         uWarp: { value: warpAmount }
       }
     });
+    
+    webglState.current.program = program;
 
     const mesh = new Mesh(gl, { geometry, program });
+
+    const isMobile = window.innerWidth < 768;
+    const rs = isMobile ? 0.35 : 0.6;
 
     const resize = () => {
       const w = parent.clientWidth,
         h = parent.clientHeight;
-      renderer.setSize(w * resolutionScale, h * resolutionScale);
-      program.uniforms.uResolution.value.set(w, h);
+        
+      const renderW = w * rs;
+      const renderH = h * rs;
+        
+      renderer.setSize(renderW, renderH);
+      program.uniforms.uResolution.value.set(renderW, renderH);
     };
 
     window.addEventListener('resize', resize);
@@ -125,24 +154,29 @@ export default function DarkVeil({
 
     const start = performance.now();
     let frame = 0;
+    
+    // Limits frame rate to target 30 FPS for battery optimization
+    const FPS_INTERVAL = 1000 / 30;
 
-    const loop = () => {
-      program.uniforms.uTime.value = ((performance.now() - start) / 1000) * speed;
-      program.uniforms.uHueShift.value = hueShift;
-      program.uniforms.uNoise.value = noiseIntensity;
-      program.uniforms.uScan.value = scanlineIntensity;
-      program.uniforms.uScanFreq.value = scanlineFrequency;
-      program.uniforms.uWarp.value = warpAmount;
-      renderer.render({ scene: mesh });
+    const loop = (timestamp) => {
       frame = requestAnimationFrame(loop);
+      
+      const elapsed = timestamp - webglState.current.lastTime;
+      if (elapsed > FPS_INTERVAL) {
+        webglState.current.lastTime = timestamp - (elapsed % FPS_INTERVAL);
+        program.uniforms.uTime.value = ((timestamp - start) / 1000) * webglState.current.speed;
+        renderer.render({ scene: mesh });
+      }
     };
 
-    loop();
+    frame = requestAnimationFrame(loop);
 
     return () => {
       cancelAnimationFrame(frame);
       window.removeEventListener('resize', resize);
+      webglState.current.program = null;
     };
-  }, [hueShift, noiseIntensity, scanlineIntensity, speed, scanlineFrequency, warpAmount, resolutionScale]);
-  return <canvas ref={ref} className="darkveil-canvas" />;
+  }, []);
+
+  return <canvas ref={ref} className="darkveil-canvas" style={{ width: '100%', height: '100%', display: 'block' }} />;
 }
