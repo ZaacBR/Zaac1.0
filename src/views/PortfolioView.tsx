@@ -146,19 +146,29 @@ export default function PortfolioView({ setView }: { setView: (v: View) => void 
                   <p className="text-on-surface-variant font-sans text-sm max-w-md leading-relaxed mb-12">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mb-8">
                     {project.tags.map(tag => (
                       <span key={tag} className="text-[0.6rem] tracking-widest font-bold border border-outline-variant px-3 py-1.5 uppercase font-sans">
                         {tag}
                       </span>
                     ))}
                   </div>
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs uppercase tracking-widest font-bold text-on-surface hover:text-primary transition-colors flex items-center gap-2 self-start mt-4"
+                    >
+                      Visitar Site <ExternalLink size={14} />
+                    </a>
+                  )}
                 </div>
               </div>
               <div className="lg:w-1/2 min-h-[400px] relative order-1 lg:order-2 overflow-hidden border-b lg:border-b-0 lg:border-l border-outline-variant">
                 <img 
                   src={project.image} 
-                  className="absolute inset-0 w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                  className="absolute inset-0 w-full h-full object-cover object-top grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
                   alt={project.title}
                   referrerPolicy="no-referrer"
                 />

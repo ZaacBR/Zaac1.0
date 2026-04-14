@@ -1,5 +1,6 @@
 import { Project } from './types';
 import solarHomeSite from './solar-prints/SolarHomeSite.webp';
+import yamamotoSite from './yamamoto-site.png';
 
 export const projects: Project[] = [
   {
@@ -17,26 +18,27 @@ export const projects: Project[] = [
     logicId: 'LOGIC 01'
   },
   {
-    id: 'headless-ecommerce',
-    title: 'Plataforma de E-commerce Headless',
-    category: 'Scalable Commerce',
-    description: 'Arquitetura desacoplada garantindo performance extrema em dispositivos móveis e SEO de nível superior.',
-    tags: ['Shopify', 'Bling', 'CSS', 'Mercado Pago', '+'],
+    id: 'atelier-yamamoto',
+    title: 'Atelier Yamamoto',
+    category: 'Landing Page & Conversão B2B',
+    description: 'Landing page premium para laboratório odontológico de alta performance. Copywriting orientado a conversão, funil de captação de parceiros e identidade visual profissional.',
+    tags: ['WordPress', 'Elementor', 'Copywriting', 'SEO', 'Google Ads'],
     stats: [
-      { label: 'Page Speed', value: '98/100' },
-      { label: 'Conversão', value: '+18%' }
+      { label: 'Conversão', value: 'B2B' },
+      { label: 'Entrega', value: '7 dias' }
     ],
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200'
+    image: yamamotoSite,
+    link: 'https://atelieryamamoto.com.br/'
   },
   {
     id: 'multi-platform-sites',
-    title: 'Mais de 50 Projetos Entregues',
-    category: 'Web & E-commerce',
-    description: 'Experiência comprovada no desenvolvimento de dezenas de sites e lojas virtuais. Do básico bem feito com HTML, CSS e JS, até integrações complexas em plataformas líderes de mercado.',
-    tags: ['HTML/CSS/JS', 'Shopify', 'Mercado Livre', 'WooCommerce', 'WordPress', '+'],
+    title: 'Mais de 15 Projetos B2B Entregues',
+    category: 'Web, CRM & Automação',
+    description: 'Histórico comprovado de implementações B2B completas — de sites institucionais e landing pages a ecossistemas de automação com n8n, Kommo e APIs REST. Todos com 100% on-time delivery.',
+    tags: ['React', 'WordPress', 'n8n', 'Kommo', 'REST APIs', 'Node.js'],
     stats: [
-      { label: 'Projetos', value: '+50' },
-      { label: 'Plataformas', value: 'Múltiplas' }
+      { label: 'On-Time', value: '100%' },
+      { label: 'Satisfação', value: '9.2/10' }
     ],
     image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1200'
   }

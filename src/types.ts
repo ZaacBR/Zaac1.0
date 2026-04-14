@@ -9,6 +9,7 @@ export interface Project {
   stats: { label: string; value: string }[];
   image: string;
   logicId?: string;
+  link?: string;
 }
 
 export interface Service {
