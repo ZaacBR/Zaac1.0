@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Mail, MapPin, Linkedin, Github, MessageSquare } from 'lucide-react';
+import { useTranslation, Trans } from 'react-i18next';
 import { View } from '../types';
 
 export default function ContactView({ setView }: { setView: (v: View) => void }) {
+  const { t } = useTranslation();
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   const handleWhatsApp = () => {
@@ -22,15 +24,15 @@ export default function ContactView({ setView }: { setView: (v: View) => void })
           animate={{ opacity: 1, y: 0 }}
           className="flex items-center gap-4 text-on-surface-variant text-xs font-bold uppercase tracking-[0.3em] mb-8"
         >
-          Vamos conversar
+          {t('contact.header_subtitle')}
         </motion.div>
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-6xl md:text-9xl font-display font-black tracking-tighter leading-none mb-6"
         >
-          INICIAR <br />
-          <span className="text-primary">PROJETO.</span>
+          {t('contact.header_title1')} <br />
+          <span className="text-primary">{t('contact.header_title2')}</span>
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -38,7 +40,9 @@ export default function ContactView({ setView }: { setView: (v: View) => void })
           transition={{ delay: 0.2 }}
           className="text-on-surface-variant font-sans text-lg max-w-xl leading-relaxed"
         >
-          Agenda aberta para novos projetos, consultorias e oportunidades. Resposta média em até <strong className="text-on-surface">4 horas úteis</strong>.
+          <Trans i18nKey="contact.header_desc">
+            Agenda aberta para novos projetos, consultorias e oportunidades. Resposta média em até <strong className="text-on-surface">4 horas úteis</strong>.
+          </Trans>
         </motion.p>
       </header>
 
@@ -50,7 +54,7 @@ export default function ContactView({ setView }: { setView: (v: View) => void })
           transition={{ delay: 0.3 }}
           className="border border-outline-variant bg-surface p-10 space-y-10"
         >
-          <h2 className="text-2xl font-display font-bold uppercase">Canais Diretos</h2>
+          <h2 className="text-2xl font-display font-bold uppercase">{t('contact.channels_title')}</h2>
 
           <div className="space-y-8">
             <a
@@ -61,7 +65,7 @@ export default function ContactView({ setView }: { setView: (v: View) => void })
                 <Mail size={16} />
               </div>
               <div>
-                <div className="text-[0.6rem] tracking-[0.2em] uppercase text-on-surface-variant font-bold mb-1">Email Direto</div>
+                <div className="text-[0.6rem] tracking-[0.2em] uppercase text-on-surface-variant font-bold mb-1">{t('contact.email_label')}</div>
                 <span className="font-sans font-medium text-on-surface group-hover:text-primary transition-colors">Guilherme@zaac.com.br</span>
               </div>
             </a>
@@ -76,7 +80,7 @@ export default function ContactView({ setView }: { setView: (v: View) => void })
                 <MessageSquare size={16} />
               </div>
               <div>
-                <div className="text-[0.6rem] tracking-[0.2em] uppercase text-on-surface-variant font-bold mb-1">WhatsApp</div>
+                <div className="text-[0.6rem] tracking-[0.2em] uppercase text-on-surface-variant font-bold mb-1">{t('contact.whatsapp_label')}</div>
                 <span className="font-sans font-medium text-on-surface group-hover:text-primary transition-colors">+55 (61) 9243-9505</span>
               </div>
             </a>
@@ -86,8 +90,8 @@ export default function ContactView({ setView }: { setView: (v: View) => void })
                 <MapPin size={16} />
               </div>
               <div>
-                <div className="text-[0.6rem] tracking-[0.2em] uppercase text-on-surface-variant font-bold mb-1">Localização</div>
-                <span className="font-sans font-medium text-on-surface-variant">Brasília, DF — Projetos Remotos</span>
+                <div className="text-[0.6rem] tracking-[0.2em] uppercase text-on-surface-variant font-bold mb-1">{t('contact.location_label')}</div>
+                <span className="font-sans font-medium text-on-surface-variant">{t('contact.location_value')}</span>
               </div>
             </div>
           </div>
@@ -124,15 +128,15 @@ export default function ContactView({ setView }: { setView: (v: View) => void })
             <div className="w-10 h-10 border border-black/20 flex items-center justify-center mb-8">
               <MessageSquare size={16} />
             </div>
-            <h2 className="text-2xl font-display font-bold mb-4 uppercase">Conversar Agora</h2>
+            <h2 className="text-2xl font-display font-bold mb-4 uppercase">{t('contact.cta_title')}</h2>
             <p className="font-sans leading-relaxed text-black/70 mb-4 text-sm">
-              Me conta o desafio do seu negócio — seja um novo sistema, automação de processos ou gestão de projeto.
+              {t('contact.cta_desc')}
             </p>
             <ul className="space-y-2 text-sm font-sans text-black/80">
-              {['Desenvolvimento de sistemas', 'Automações & Integrações CRM', 'Gestão de projetos digitais', 'Consultoria técnica'].map(item => (
-                <li key={item} className="flex items-center gap-2">
+              {[0, 1, 2, 3].map(i => (
+                <li key={i} className="flex items-center gap-2">
                   <span className="w-1 h-1 bg-black rounded-full shrink-0"></span>
-                  {item}
+                  {t(`contact.services.${i}`)}
                 </li>
               ))}
             </ul>
@@ -142,9 +146,9 @@ export default function ContactView({ setView }: { setView: (v: View) => void })
               onClick={handleWhatsApp}
               className="bg-black text-white font-sans font-bold uppercase tracking-widest px-8 py-5 text-xs inline-flex items-center gap-4 hover:bg-white hover:text-black transition-colors w-full justify-center"
             >
-              Iniciar no WhatsApp <ArrowRight size={16} />
+              {t('contact.btn_whatsapp')} <ArrowRight size={16} />
             </button>
-            <p className="text-[0.6rem] text-center text-black/50 uppercase tracking-widest">Resposta em até 4 horas úteis</p>
+            <p className="text-[0.6rem] text-center text-black/50 uppercase tracking-widest">{t('contact.btn_desc')}</p>
           </div>
         </motion.div>
       </div>

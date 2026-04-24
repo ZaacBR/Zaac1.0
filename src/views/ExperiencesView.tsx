@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { CheckCircle2, Linkedin, Github, ExternalLink } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { View } from '../types';
 
 const techStack = [
@@ -37,6 +38,7 @@ const impacts = [
 ];
 
 export default function ExperiencesView({ setView }: { setView: (v: View) => void }) {
+  const { t } = useTranslation();
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
@@ -48,11 +50,11 @@ export default function ExperiencesView({ setView }: { setView: (v: View) => voi
           animate={{ opacity: 1, y: 0 }}
           className="flex items-center gap-4 text-on-surface-variant text-xs font-bold uppercase tracking-[0.3em] mb-8"
         >
-          Minha Trajetória
+          {t('experiences.header_subtitle')}
         </motion.div>
         <h1 className="text-6xl md:text-9xl font-display font-black tracking-tighter leading-none mb-16">
-          <motion.span initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6 }} className="block text-on-surface">HABILIDADES &</motion.span>
-          <motion.span initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6, delay: 0.1 }} className="block text-primary">RESULTADOS</motion.span>
+          <motion.span initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6 }} className="block text-on-surface">{t('experiences.header_title1')}</motion.span>
+          <motion.span initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6, delay: 0.1 }} className="block text-primary">{t('experiences.header_title2')}</motion.span>
         </h1>
       </header>
 
@@ -64,8 +66,8 @@ export default function ExperiencesView({ setView }: { setView: (v: View) => voi
           viewport={{ once: true }}
           className="mb-12"
         >
-          <h2 className="text-[0.65rem] text-primary font-bold tracking-[0.3em] uppercase mb-2">Impacto Mensurável</h2>
-          <h3 className="text-3xl md:text-4xl font-display font-bold uppercase tracking-tighter">Números que Convencem.</h3>
+          <h2 className="text-[0.65rem] text-primary font-bold tracking-[0.3em] uppercase mb-2">{t('experiences.impact_subtitle')}</h2>
+          <h3 className="text-3xl md:text-4xl font-display font-bold uppercase tracking-tighter">{t('experiences.impact_title')}</h3>
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
@@ -82,7 +84,7 @@ export default function ExperiencesView({ setView }: { setView: (v: View) => voi
                 {value}
               </div>
               <div className="text-[0.5rem] uppercase tracking-[0.2em] text-on-surface-variant font-bold leading-tight whitespace-pre-line">
-                {label}
+                {t(`experiences.impacts.${i}.label`, { defaultValue: label })}
               </div>
             </motion.div>
           ))}
@@ -97,8 +99,8 @@ export default function ExperiencesView({ setView }: { setView: (v: View) => voi
           viewport={{ once: true }}
           className="mb-12"
         >
-          <h2 className="text-[0.65rem] text-primary font-bold tracking-[0.3em] uppercase mb-2">Competências Técnicas</h2>
-          <h3 className="text-3xl md:text-4xl font-display font-bold uppercase tracking-tighter">O Arsenal.</h3>
+          <h2 className="text-[0.65rem] text-primary font-bold tracking-[0.3em] uppercase mb-2">{t('experiences.tech_subtitle')}</h2>
+          <h3 className="text-3xl md:text-4xl font-display font-bold uppercase tracking-tighter">{t('experiences.tech_title')}</h3>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -112,13 +114,13 @@ export default function ExperiencesView({ setView }: { setView: (v: View) => voi
               className="border border-outline-variant bg-surface p-6 group hover:border-primary transition-all duration-300"
             >
               <div className="flex justify-between items-start mb-3">
-                <h4 className="font-display font-bold text-lg uppercase tracking-tight group-hover:text-primary transition-colors">{name}</h4>
+                <h4 className="font-display font-bold text-lg uppercase tracking-tight group-hover:text-primary transition-colors">{t(`experiences.techStack.${i}.name`, { defaultValue: name })}</h4>
                 <span className={`text-[0.55rem] font-bold uppercase tracking-widest px-2 py-1 border shrink-0 ml-2 ${color === 'primary' ? 'border-primary/40 text-primary' : 'border-outline-variant text-on-surface-variant'}`}>
-                  {level}
+                  {t(`experiences.techStack.${i}.level`, { defaultValue: level })}
                 </span>
               </div>
-              <p className="text-[0.65rem] text-on-surface-variant font-sans leading-relaxed mb-3">{tag}</p>
-              <div className="text-[0.55rem] font-bold uppercase tracking-widest text-outline-variant">{years}</div>
+              <p className="text-[0.65rem] text-on-surface-variant font-sans leading-relaxed mb-3">{t(`experiences.techStack.${i}.tag`, { defaultValue: tag })}</p>
+              <div className="text-[0.55rem] font-bold uppercase tracking-widest text-outline-variant">{t(`experiences.techStack.${i}.years`, { defaultValue: years })}</div>
             </motion.div>
           ))}
         </div>
@@ -132,7 +134,7 @@ export default function ExperiencesView({ setView }: { setView: (v: View) => voi
           viewport={{ once: true }}
           className="text-3xl md:text-4xl font-display font-bold uppercase tracking-tighter mb-16"
         >
-          Trajetória Profissional
+          {t('experiences.career_title')}
         </motion.h2>
 
         <div className="space-y-0">
@@ -183,19 +185,19 @@ export default function ExperiencesView({ setView }: { setView: (v: View) => voi
             >
               <div className="md:col-span-3">
                 <div className="text-[0.6rem] font-bold uppercase tracking-widest text-on-surface-variant group-hover:text-primary transition-colors mb-2">
-                  {exp.period}
+                  {t(`experiences.career.${i}.period`, { defaultValue: exp.period })}
                 </div>
                 <div className={`text-[0.65rem] font-bold uppercase tracking-widest ${exp.color === 'primary' ? 'text-primary' : 'text-on-surface'}`}>
-                  {exp.company}
+                  {t(`experiences.career.${i}.company`, { defaultValue: exp.company })}
                 </div>
               </div>
               <div className="md:col-span-9 md:border-l md:border-outline-variant/30 md:pl-8">
-                <h3 className="text-xl md:text-2xl font-display font-bold mb-6 group-hover:text-primary transition-colors">{exp.role}</h3>
+                <h3 className="text-xl md:text-2xl font-display font-bold mb-6 group-hover:text-primary transition-colors">{t(`experiences.career.${i}.role`, { defaultValue: exp.role })}</h3>
                 <ul className="space-y-2">
-                  {exp.highlights.map((h) => (
+                  {exp.highlights.map((h, hIdx) => (
                     <li key={h} className="flex items-start gap-3 text-sm font-sans text-on-surface-variant">
                       <span className="w-1 h-1 bg-primary mt-2 shrink-0 rounded-full"></span>
-                      {h}
+                      {t(`experiences.career.${i}.highlights.${hIdx}`, { defaultValue: h })}
                     </li>
                   ))}
                 </ul>
@@ -213,8 +215,8 @@ export default function ExperiencesView({ setView }: { setView: (v: View) => voi
           viewport={{ once: true }}
           className="mb-12"
         >
-          <h2 className="text-[0.65rem] text-primary font-bold tracking-[0.3em] uppercase mb-2">Educação Contínua</h2>
-          <h3 className="text-3xl md:text-4xl font-display font-bold uppercase tracking-tighter">Certificações.</h3>
+          <h2 className="text-[0.65rem] text-primary font-bold tracking-[0.3em] uppercase mb-2">{t('experiences.certifications_subtitle')}</h2>
+          <h3 className="text-3xl md:text-4xl font-display font-bold uppercase tracking-tighter">{t('experiences.certifications_title')}</h3>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -229,7 +231,7 @@ export default function ExperiencesView({ setView }: { setView: (v: View) => voi
             >
               <CheckCircle2 className="text-on-surface-variant group-hover:text-primary transition-colors shrink-0 mt-0.5" size={18} />
               <div>
-                <h4 className="font-display font-bold text-sm uppercase tracking-tight mb-1">{title}</h4>
+                <h4 className="font-display font-bold text-sm uppercase tracking-tight mb-1">{t(`experiences.certifications.${i}.title`, { defaultValue: title })}</h4>
                 <div className="text-[0.6rem] font-bold uppercase tracking-widest text-on-surface-variant">
                   {issuer} <span className="text-primary">· {year}</span>
                 </div>
@@ -248,15 +250,15 @@ export default function ExperiencesView({ setView }: { setView: (v: View) => voi
           className="bg-primary text-on-primary py-32 px-8 flex flex-col items-center justify-center"
         >
           <h2 className="text-5xl md:text-8xl font-display font-black uppercase tracking-tighter max-w-4xl mx-auto leading-none mb-4">
-            PRONTO PARA ESCALAR?
+            {t('experiences.cta_title')}
           </h2>
-          <p className="text-black/70 font-sans mb-12 text-sm">Resposta em até 4 horas úteis.</p>
+          <p className="text-black/70 font-sans mb-12 text-sm">{t('experiences.cta_desc')}</p>
           <div className="flex flex-col sm:flex-row gap-4 items-center">
             <button
               onClick={() => setView('contact')}
               className="bg-black text-white font-sans font-bold px-12 py-5 uppercase tracking-widest text-xs transition-transform hover:scale-105"
             >
-              Entrar em Contato
+              {t('experiences.cta_btn')}
             </button>
             <a
               href="https://www.linkedin.com/in/guilherme-izaac/"

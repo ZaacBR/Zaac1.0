@@ -1,0 +1,492 @@
+{
+  "nav": {
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "experiences": "Experiences",
+    "contact": "Contact",
+    "close_menu": "Close menu",
+    "open_menu": "Open menu"
+  },
+  "footer": {
+    "subtitle": "Extreme Contrast Digital Solutions.",
+    "rights": "© 2026 All rights reserved.",
+    "contact": "Contact",
+    "networks": "Socials"
+  },
+  "titles": {
+    "base": "Guilherme Izaac | Digital Solutions",
+    "portfolio": "Portfolio | Guilherme Izaac | Digital Solutions",
+    "about": "About Me | Guilherme Izaac | Digital Solutions",
+    "experiences": "Experiences | Guilherme Izaac | Digital Solutions",
+    "contact": "Contact | Guilherme Izaac | Digital Solutions",
+    "solar_case": "Case: Solar da Colina | Guilherme Izaac | Digital Solutions",
+    "zaac_case": "Case: Zaac Platform | Guilherme Izaac | Digital Solutions",
+    "thanks": "Thank You | Guilherme Izaac | Digital Solutions"
+  },
+  "home": {
+    "hero": {
+      "subtitle": "Robust Solutions, Real Results",
+      "line1": "TAILOR-MADE",
+      "line2": "DIGITAL",
+      "line3": "SOLUTIONS.",
+      "btn_project": "Start Project",
+      "btn_portfolio": "View Portfolio"
+    },
+    "metrics": {
+      "projects": "B2B Projects\nLed",
+      "delivery": "On-Time\nDelivery",
+      "conversion": "Max Web\nConversion",
+      "errors": "Operational Errors\nReduced"
+    },
+    "vision": "We merge high-fidelity web design with the implementation of robust systems. We develop custom proposals that turn complexity into efficiency, ensuring your digital foundation is always seamless, scalable, and flawless.",
+    "process": {
+      "title": "PROCESS",
+      "step1": {
+        "title": "Pain Study",
+        "desc": "Every brilliant architecture is born from a limiting problem. Before any line of code or infrastructure, we dive into the root of your corporate pain to understand exactly what bottlenecks are consuming your resources, corrupting your routine, and shielding your company's natural scale."
+      },
+      "step2": {
+        "title": "Precise Diagnosis",
+        "desc": "In a tactical alignment meeting, we expose operational weaknesses on a transparent map. We dissect the architectural requirements to perfectly tie the necessary technologies with existing processes. We trace essential connectors communicating with crucial CRMs and ERPs."
+      },
+      "step3": {
+        "title": "Solution Proposal",
+        "desc": "We present the definitive map. A customized technical foundation that centralizes disordered operations without bottlenecks or rigid dependency. We validate the model, infrastructure speed (Cloud), assertive scope, and the tailored deployment plan for you to scale immediately."
+      }
+    },
+    "manifesto": {
+      "title1": "The Direction of Scale",
+      "title2": "Breaks",
+      "title3": "Amateur Systems.",
+      "p1": "We do not believe in the comfort of the surface: while businesses delegate total control of their management to closed software offered by the market, ruptures become inevitable when subjected to disproportionate force. Companies lose massive base retention in boring \"contact log failures\" or third-party API crashes.",
+      "p2": "Your team demands ruthless automation built on modular foundations. Assuming end-to-end responsibility – from the invisible Bash Script running under virtual servers in the ecosystem to the complex hook capturing the ideal client – growth stabilizes. And that's what robust management does: predictability."
+    },
+    "cta": {
+      "title": "LIMITLESS SCALABILITY.",
+      "btn": "Schedule Consulting"
+    }
+  },
+  "about": {
+    "badge": "Project Manager · Dev & Automation",
+    "title_line1": "DIGITAL",
+    "title_line2": "SOLUTIONS.",
+    "intro": {
+      "machine_title": "The Machine Perspective (Infra/Dev)",
+      "machine_desc": "With a solid foundation in Systems Analysis and Development, my technical approach goes down to the metal. I manage complex environments of virtual Linux cloud servers, Docker containerized infrastructures, and transactional databases, ensuring the entire base supporting heavy data workflows never yields under extreme stress.",
+      "value_title": "The Value Perspective (CRM/Business)",
+      "value_desc": "But technology is just a means. I combine this relentless architectural execution with Management focused on the commercial client lifecycle. Dozens of asynchronous automations, corporate REST integrations, and native customization in top CRMs (Kommo, Pipedrive) are shaped to ensure one thing: your business won't lose money or leads down the drain of human inefficiency."
+    },
+    "dev_section": {
+      "badge": "Full-Stack · PHP · React · Next.js",
+      "title": "Development\n& Solutions\nArchitecture",
+      "quote": "My technical approach goes beyond writing code; it's about <1>orchestrating systems that scale</1>. I have solid experience in developing full-stack applications and integration architecture.",
+      "php_title": "PHP Ecosystem",
+      "php_desc": "From pure scripts to robust backends for APIs — complete mastery of the PHP lifecycle, focusing on security, performance, and integration with transactional databases.",
+      "js_title": "Modern JavaScript Stack",
+      "js_desc": "React / Next.js to create responsive, high-performance interfaces. Typed componentization, SSR/SSG, and efficient API consumption with minimal latency.",
+      "footer": "I don't just implement features — <1>I resolve infrastructure and data bottlenecks</1>, ensuring the back-end and front-end communicate with minimal latency and maximum security. Whether creating custom plugins, integrating complex APIs, or developing <3>tailor-made SaaS</3>, my focus is always on efficiency, testability, and direct impact on business results."
+    },
+    "trajectory": {
+      "title": "Trajectory"
+    },
+    "education": {
+      "title_academic": "Education",
+      "title_skills": "Tactical Skills"
+    },
+    "cta": {
+      "title_line1": "YOUR COMPANY DEMANDS",
+      "title_line2": "REAL SOLUTIONS.",
+      "btn": "Start Conversation"
+    }
+  },
+  "portfolio": {
+    "header_subtitle": "Project Portfolio",
+    "header_title1": "SUCCESS",
+    "header_title2": "STORIES",
+    "section1_subtitle": "Software & Engineering",
+    "section1_title": "Developed Systems.",
+    "section1_desc": "Proprietary platforms and ecosystems built from scratch to resolve complex corporate bottlenecks. We build code focused on conversion, speed, and deep integration.",
+    "solar": {
+      "badge": "SaaS / Hospitality Management",
+      "title": "Solar da Colina Ecosystem",
+      "desc": "Modern full-stack platform for complete reservation management. Centralizes the guest catalog and administrative operation in a single, fast interface."
+    },
+    "zaac": {
+      "badge": "SaaS / Aesthetics & Design Management",
+      "title": "Zaac - Design",
+      "desc": "Premium ecosystem for scheduling management and wellness business administration. Immersive interface focused on high-fidelity UX."
+    },
+    "btn_case": "View Full Case",
+    "section2_subtitle": "Diverse Applications",
+    "btn_visit": "Visit Site",
+    "section3_subtitle": "How We Work",
+    "section3_title": "The Right Solution",
+    "section3_title_highlight": "Is Born from a Real Problem.",
+    "section3_desc": "We don't come with a ready-made solution. We come with questions. Every project begins with a deep dive into the client's operation — because the ideal technology only appears after understanding the workflow with clinical depth.",
+    "steps": {
+      "step1": {
+        "title": "Business Immersion",
+        "badge": "Operational Diagnosis",
+        "desc": "Before any keyboard, we sit with you. We understand who your team is, how they work today, where bottlenecks appear, and what your operation demands but doesn't yet receive. This phase isn't a briefing meeting — it's a clinical analysis of your business.",
+        "list_title": "What we map",
+        "items": [
+          "The team's real routine — how tasks arrive, how they leave, and where they die",
+          "Tools in use, broken integrations, and critical manual processes",
+          "Where the client gets lost and where revenue leaks unnoticed",
+          "Data volume, access frequency, and hidden operational risks"
+        ]
+      },
+      "step2": {
+        "title": "Workflow Mapping",
+        "badge": "Solution Architecture",
+        "desc": "With the diagnosis in hand, we translate the problem into architecture. We design the data flow, automation points, and necessary integrations — all documented in a technical map that you can read and validate before approving a single line of code.",
+        "list_title": "What we deliver in this phase",
+        "items": [
+          "Visual map of the operational workflow before and after the solution",
+          "Definition of technologies — driven by necessity, not trends",
+          "Integration points with existing systems (CRM, ERP, APIs)",
+          "Closed scope, realistic schedule, and objective success criteria"
+        ]
+      },
+      "step3": {
+        "title": "Custom Solution",
+        "badge": "Implementation & Delivery",
+        "desc": "Only then do we build. Every component is designed to solve exactly the problem identified in the immersion — no superfluous features, no unnecessary costs. Delivery includes training, documentation, and support until your team operates with complete autonomy.",
+        "list_title": "What you receive",
+        "items": [
+          "System running in the real environment — not in an isolated demo",
+          "Active automations connecting capture, operations, and CRM in real-time",
+          "Technical documentation and usage videos for the entire team",
+          "Post-delivery support and a refinement window at no extra cost"
+        ]
+      }
+    },
+    "section4_subtitle": "Operating Ecosystems"
+  },
+  "projects": {
+    "solar-colina-ecosystem": {
+      "title": "Solar da Colina Ecosystem",
+      "category": "Hospitality & Camping",
+      "description": "Complete full-stack system: from the reservation website to integration with Airbnb and Booking.com, centralizing the entire camping operation in one place."
+    },
+    "atelier-yamamoto": {
+      "title": "Yamamoto Atelier",
+      "category": "Landing Page & B2B Conversion",
+      "description": "Premium landing page for a high-performance dental laboratory. Conversion-oriented copywriting, partner acquisition funnel, and professional visual identity."
+    },
+    "multi-platform-sites": {
+      "title": "Over 15 B2B Projects Delivered",
+      "category": "Web, CRM & Automation",
+      "description": "Proven track record of complete B2B implementations — from institutional websites and landing pages to automation ecosystems with n8n, Kommo, and REST APIs. All with 100% on-time delivery."
+    }
+  },
+  "experiences": {
+    "header_subtitle": "My Trajectory",
+    "header_title1": "SKILLS &",
+    "header_title2": "RESULTS",
+    "impact_subtitle": "Measurable Impact",
+    "impact_title": "Numbers that Convince.",
+    "tech_subtitle": "Technical Skills",
+    "tech_title": "The Arsenal.",
+    "career_title": "Professional Trajectory",
+    "certifications_subtitle": "Continuous Education",
+    "certifications_title": "Certifications.",
+    "cta_title": "READY TO SCALE?",
+    "cta_desc": "Response within 4 business hours.",
+    "cta_btn": "Get in Touch",
+    "impacts": [
+      {
+        "label": "B2B Companies\nImplemented"
+      },
+      {
+        "label": "On-Time\nDelivery"
+      },
+      {
+        "label": "Average\nSatisfaction (/10)"
+      },
+      {
+        "label": "Errors\nEliminated"
+      },
+      {
+        "label": "Records/day\nAutomated"
+      },
+      {
+        "label": "Max Web\nConversion"
+      }
+    ],
+    "techStack": [
+      {
+        "name": "Project Management",
+        "level": "Advanced",
+        "years": "3 years",
+        "tag": "Agile / Scrum / Kanban"
+      },
+      {
+        "name": "React.js",
+        "level": "Advanced",
+        "years": "3 years",
+        "tag": "SaaS Apps & Dashboards"
+      },
+      {
+        "name": "TypeScript",
+        "level": "Advanced",
+        "years": "2 years",
+        "tag": "Typing in all projects"
+      },
+      {
+        "name": "n8n (Docker)",
+        "level": "Advanced",
+        "years": "2 years",
+        "tag": "+1,000 automated records/day"
+      },
+      {
+        "name": "Kommo / Pipedrive",
+        "level": "Advanced",
+        "years": "3 years",
+        "tag": "15+ B2B implementations"
+      },
+      {
+        "name": "Next.js",
+        "level": "Intermediate",
+        "years": "2 years",
+        "tag": "Landing pages & corporate sites"
+      },
+      {
+        "name": "Make / Zapier",
+        "level": "Advanced",
+        "years": "3 years",
+        "tag": "Multi-platform flows"
+      },
+      {
+        "name": "REST APIs / Webhooks",
+        "level": "Advanced",
+        "years": "3 years",
+        "tag": "JSON, corporate integrations"
+      },
+      {
+        "name": "Linux / VPS",
+        "level": "Intermediate",
+        "years": "2 years",
+        "tag": "Self-hosted servers"
+      },
+      {
+        "name": "WordPress",
+        "level": "Advanced",
+        "years": "4 years",
+        "tag": "Elementor, 15-22% conversion"
+      },
+      {
+        "name": "Google Analytics (GA4)",
+        "level": "Advanced",
+        "years": "2 years",
+        "tag": "GTM, tracking and dashboards"
+      },
+      {
+        "name": "Google / Meta Ads",
+        "level": "Intermediate",
+        "years": "2 years",
+        "tag": "Tag setup and tracking"
+      }
+    ],
+    "career": [
+      {
+        "period": "Aug 2023 – Present",
+        "role": "Automation & CRM Project Manager",
+        "company": "Zera Company",
+        "highlights": [
+          "15+ B2B implementations with 100% on-time delivery",
+          "+1,000 automated records/day via n8n + Webhooks",
+          "Average satisfaction rate of 9.2/10 in delivered projects",
+          "Landing pages with 15-22% conversion rate"
+        ]
+      },
+      {
+        "period": "Nov 2022 – Present",
+        "role": "Front-End Developer & Systems Integrator",
+        "company": "Freelancer / Side Projects",
+        "highlights": [
+          "SaaS applications in React.js, TypeScript, and Next.js",
+          "REST APIs and multi-platform integrations",
+          "Automations in n8n, Make, and Google Apps Script",
+          "High-fidelity UI/UX focused on conversion"
+        ]
+      },
+      {
+        "period": "Feb 2023 – May 2024",
+        "role": "IT Analyst & Advanced Support",
+        "company": "Kamaleão Color",
+        "highlights": [
+          "Infrastructure administration for 30+ users",
+          "E-commerce migration with +30,000 customers",
+          "Network, switch, and server configuration"
+        ]
+      }
+    ],
+    "certifications": [
+      {
+        "title": "Project Management Fundamentals (Agile/Scrum)"
+      },
+      {
+        "title": "Advanced Configuration — Kommo CRM"
+      },
+      {
+        "title": "Advanced Configuration — Pipedrive"
+      },
+      {
+        "title": "n8n 2.0 — Workflows, Docker & Error Handling"
+      },
+      {
+        "title": "REST APIs, Webhooks and Data Sync"
+      },
+      {
+        "title": "Front-End: React.js, TypeScript, Next.js"
+      }
+    ]
+  },
+  "contact": {
+    "header_subtitle": "Let's talk",
+    "header_title1": "START",
+    "header_title2": "PROJECT.",
+    "header_desc": "Schedule open for new projects, consulting, and opportunities. Average response within <1>4 business hours</1>.",
+    "channels_title": "Direct Channels",
+    "email_label": "Direct Email",
+    "whatsapp_label": "WhatsApp",
+    "location_label": "Location",
+    "location_value": "Brasília, DF — Remote Projects",
+    "cta_title": "Talk Now",
+    "cta_desc": "Tell me about your business challenge — whether it's a new system, process automation, or project management.",
+    "services": [
+      "Systems development",
+      "Automations & CRM Integrations",
+      "Digital project management",
+      "Technical consulting"
+    ],
+    "btn_whatsapp": "Start on WhatsApp",
+    "btn_desc": "Response within 4 business hours"
+  },
+  "thanks": {
+    "title1": "THANK",
+    "title2": "YOU.",
+    "desc": "Your message has been sent successfully. I will get back to you soon!",
+    "deadline_title": "Response Time",
+    "deadline_desc": "Average response within <1>4 business hours</1>.",
+    "btn_home": "Back to Home",
+    "btn_portfolio": "View Portfolio"
+  },
+  "solarCase": {
+    "badge": "Development Case",
+    "title1": "SOLAR",
+    "title2": "DA COLINA.",
+    "btn_system": "Access System",
+    "interface_title": "Interface & Operation",
+    "screens": [
+      {
+        "title": "Control Panel",
+        "desc": "Real-time overview of occupancy, revenue, and recent activities in a clean layout."
+      },
+      {
+        "title": "Availability Calendar",
+        "desc": "Visual and intuitive management for reservation control and strategic date blocking."
+      },
+      {
+        "title": "Accommodation Management",
+        "desc": "Registration and detailed editing of units (Camping, Suites, Chalets) with capacity control."
+      },
+      {
+        "title": "Check-in & Out Flow",
+        "desc": "Daily monitoring of arrivals and departures, ensuring fluidity in reception and cleaning."
+      },
+      {
+        "title": "Pricing Management",
+        "desc": "Tariff intelligence setup for high seasons and scheduled holidays."
+      },
+      {
+        "title": "User Directory",
+        "desc": "Strict permission control and audit logs to monitor all administrative activity."
+      },
+      {
+        "title": "Public Reservation Interface",
+        "desc": "Minimalist flow focused on conversion so the client can book their stay in seconds."
+      }
+    ],
+    "purpose_title": "Purpose",
+    "purpose_desc": "To facilitate the reservation process for clients and centralize the entire administrative operation into a single intuitive and powerful interface. Solar da Colina is a modern full-stack platform developed for complete reservation management and administration of a high-traffic hospitality property.",
+    "admin_title": "Administrative Engine (Admin)",
+    "admin_items": [
+      "<1>Overview Dashboard:</1> Instant metrics on occupancy rates, revenue, and tasks of the day.",
+      "<1>Interactive Calendar:</1> Fast visual management to view availability on the timeline and force blocks.",
+      "<1>Kanban Board:</1> Agile system to move reservations based on status (Pending, Negotiation, Check-in, Completed).",
+      "<1>Dynamic Pricing Management:</1> Tariff rules setup based on high/low season and scalable additional fees.",
+      "<1>iCal Synchronization:</1> Integration with external platforms like Airbnb and Booking.com.",
+      "<1>Check-in Management:</1> Extremely streamlined flow for fast guest reception and invoice issuance.",
+      "<1>User Control:</1> Access and permission management to ensure operational control."
+    ],
+    "client_title": "Customer Experience",
+    "client_items": [
+      "<1>Accommodation Catalog:</1> Rich and detailed visualization of hosting options, including Camping, Rooms, and Chalets.",
+      "<1>Reservation System:</1> Minimalist and fast flow, from choosing the date on the calendar to final payment confirmation.",
+      "<1>Customer Panel:</1> Invoice history, past reservations, and fluid logged-in profile administration.",
+      "<1>Policies & Support:</1> Informative pages about house rules and contact channels with the team."
+    ],
+    "btn_back": "Back to Portfolio",
+    "btn_all": "All Projects",
+    "btn_next": "Next Case: Zaac - Design"
+  },
+  "zaacCase": {
+    "badge": "Development Case",
+    "title1": "ZAAC",
+    "title2": "DESIGN.",
+    "interface_title": "Interface & Operation",
+    "screens": [
+      {
+        "title": "Overview",
+        "desc": "Performance metrics, revenue, and customer flow in real-time on the central dashboard."
+      },
+      {
+        "title": "Service Management",
+        "desc": "Detailed viewing and control of the procedure catalog (Haircuts, Coloring, Massages)."
+      },
+      {
+        "title": "Team Management",
+        "desc": "Visual control and monitoring of the schedule for professionals and specialists at the clinic."
+      },
+      {
+        "title": "CRM / Customer Base",
+        "desc": "Centralized management of customer data and complete service history."
+      },
+      {
+        "title": "Advanced Reports",
+        "desc": "Advanced data analysis based on metrics and insights for strategic decision making."
+      }
+    ],
+    "purpose_title": "Purpose",
+    "purpose_desc": "To transform the self-care experience into a \"Digital Sanctuary\", facilitating the scheduling process for clients and centralizing the entire administrative operation in an interface focused on premium design and efficiency. Zaac - Design is a modern full-stack platform for business management in the aesthetics and wellness sectors.",
+    "admin_title": "Administration & Dashboard",
+    "admin_items": [
+      "<1>Metrics Overview:</1> Tracking performance, revenue, and customer flow in real-time.",
+      "<1>Smart Schedule:</1> Visual and intuitive management of professionals' schedules with interval blocking.",
+      "<1>Team Management:</1> Total control over the registration of procedures and specialist professionals.",
+      "<1>Centralized CRM:</1> Rich database with complete service history per client.",
+      "<1>AI Support:</1> Integration with Google Gemini for intelligent support and automation in customer service.",
+      "<1>Design System:</1> Total theme customization (Light/Dark mode) and interface personalization."
+    ],
+    "client_title": "Customer Experience",
+    "client_items": [
+      "<1>Service Catalog:</1> Detailed and elegant viewing of procedures like haircuts, coloring, and massages.",
+      "<1>Smart Scheduling:</1> Simplified 4-step flow (Service → Specialist → Date/Time → Confirmation).",
+      "<1>Customer Panel:</1> Dedicated area for session history and personalized profile management.",
+      "<1>Premium Landing Page:</1> Immersive visual experience that reflects the brand's luxurious identity."
+    ],
+    "stack_title": "Stack & Engine",
+    "stack_items": [
+      "<1>Frontend</1> React 19, TypeScript and Tailwind CSS 4",
+      "<1>Animations</1> Motion (Framer Motion)",
+      "<1>Artificial Intelligence</1> Google Generative AI",
+      "<1>Backend</1> Node.js with Express",
+      "<1>Design System</1> Custom Theme (Dark/Light)"
+    ],
+    "btn_back": "Previous Case: Solar da Colina",
+    "btn_all": "View All Projects"
+  }
+}

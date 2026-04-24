@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, CheckCircle2, ExternalLink } from 'lucide-react';
+import { useTranslation, Trans } from 'react-i18next';
 import { View } from '../types';
 import BorderGlow from '../BorderGlow';
 import { projects } from '../data';
@@ -8,6 +9,7 @@ import { projects } from '../data';
 import profilePhoto from '../eu4.webp';
 
 export default function AboutView({ setView }: { setView: (v: View) => void }) {
+  const { t } = useTranslation();
   const handleContactClick = () => {
     window.open("https://wa.me/556192439505?text=Olá!%20Gostaria%20de%20conversar%20sobre%20um%20projeto.", "_blank");
     setView('thanks');
@@ -40,25 +42,25 @@ export default function AboutView({ setView }: { setView: (v: View) => void }) {
               className="mt-5 space-y-1"
             >
               <p className="text-base font-display font-bold tracking-tight text-on-surface">Guilherme Izaac Ferreira</p>
-              <p className="text-[0.6rem] font-bold uppercase tracking-[0.25em] text-primary">Gestor de Projetos · Dev & Automação</p>
+              <p className="text-[0.6rem] font-bold uppercase tracking-[0.25em] text-primary">{t('about.badge')}</p>
             </motion.div>
           </div>
           <div className="lg:col-span-7">
             <h1 className="text-6xl md:text-8xl font-display font-black tracking-tighter leading-none mb-10">
-              <span className="block text-on-surface">SOLUÇÕES</span>
-              <span className="block">DIGITAIS.</span>
+              <span className="block text-on-surface">{t('about.title_line1')}</span>
+              <span className="block">{t('about.title_line2')}</span>
             </h1>
             <div className="space-y-8 mb-16">
               <div className="border-l-2 border-primary pl-6">
-                <h4 className="text-sm font-bold uppercase tracking-widest text-primary mb-3">A Perspectiva da Máquina (Infra/Dev)</h4>
+                <h4 className="text-sm font-bold uppercase tracking-widest text-primary mb-3">{t('about.intro.machine_title')}</h4>
                 <p className="text-xl font-sans text-on-surface-variant leading-relaxed max-w-3xl">
-                  Com base sólida em Análise e Desenvolvimento de Sistemas (ADS), minha abordagem técnica desce ao metal. Administro ambientes complexos de servidores virtuais Linux cloud, infraestruturas conteinerizadas em Docker e bancos de dados transacionais, garantindo que toda a base que sustenta os pesados workflows de dados nunca ceda sob estresse extremo.
+                  {t('about.intro.machine_desc')}
                 </p>
               </div>
               <div className="border-l-2 border-outline-variant pl-6">
-                <h4 className="text-sm font-bold uppercase tracking-widest text-on-surface mb-3">A Perspectiva de Valor (CRM/Business)</h4>
+                <h4 className="text-sm font-bold uppercase tracking-widest text-on-surface mb-3">{t('about.intro.value_title')}</h4>
                 <p className="text-xl font-sans text-on-surface-variant leading-relaxed max-w-3xl">
-                  Mas a tecnologia é apenas um meio. Eu alio essa execução arquitetural implacável à Gestão focada no ciclo de vida do cliente comercial. As dezenas de automações assíncronas, integrações REST corporativas e a customização nativa em CRMs de ponta (Kommo, Pipedrive) são moldadas para garantir uma única coisa: que seu negócio não perca dinheiro ou leads pelo ralo da ineficiência humana.
+                  {t('about.intro.value_desc')}
                 </p>
               </div>
             </div>
@@ -121,6 +123,93 @@ export default function AboutView({ setView }: { setView: (v: View) => void }) {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Desenvolvimento & Arquitetura de Soluções */}
+      <section className="sobre-dev-section bg-background py-32 border-y border-outline-variant">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+
+            {/* Coluna esquerda: título + badges */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-4"
+            >
+              <p className="text-[0.6rem] font-sans font-bold uppercase tracking-[0.25em] text-primary mb-4">
+                {t('about.dev_section.badge')}
+              </p>
+              <h2 className="text-4xl md:text-5xl font-display font-black tracking-tighter uppercase text-on-surface leading-tight mb-10 whitespace-pre-wrap">
+                {t('about.dev_section.title')}
+              </h2>
+
+              {/* Tech badges */}
+              <div className="flex flex-wrap gap-2">
+                {['PHP', 'React', 'Next.js', 'TypeScript', 'REST APIs', 'SaaS', 'WordPress', 'MySQL'].map((tech) => (
+                  <span
+                    key={tech}
+                    className="text-[0.6rem] font-sans font-bold uppercase tracking-widest px-3 py-1.5 border border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary transition-colors duration-300 cursor-default"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Coluna direita: copy */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="lg:col-span-8"
+            >
+              {/* Quote principal */}
+              <blockquote className="border-l-2 border-primary pl-8 mb-12">
+                <p className="text-xl md:text-2xl font-sans text-on-surface leading-relaxed font-light">
+                  <Trans i18nKey="about.dev_section.quote">
+                    Minha abordagem técnica vai além da escrita de código; trata-se de{' '}
+                    <span className="text-primary font-semibold">orquestrar sistemas que escalam</span>.
+                    Possuo sólida experiência no desenvolvimento de aplicações full-stack e arquitetura de integrações.
+                  </Trans>
+                </p>
+              </blockquote>
+
+              {/* Dois pilares lado a lado */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div className="border-t border-outline-variant pt-8 group hover:border-primary transition-colors duration-500">
+                  <div className="text-4xl font-display font-bold text-primary mb-5 transition-colors">01</div>
+                  <h3 className="font-display font-bold text-sm uppercase tracking-widest mb-3">{t('about.dev_section.php_title')}</h3>
+                  <p className="text-on-surface-variant font-sans text-sm leading-relaxed">
+                    {t('about.dev_section.php_desc')}
+                  </p>
+                </div>
+                <div className="border-t border-outline-variant pt-8 group hover:border-primary transition-colors duration-500">
+                  <div className="text-4xl font-display font-bold text-primary mb-5 transition-colors">02</div>
+                  <h3 className="font-display font-bold text-sm uppercase tracking-widest mb-3">{t('about.dev_section.js_title')}</h3>
+                  <p className="text-on-surface-variant font-sans text-sm leading-relaxed">
+                    {t('about.dev_section.js_desc')}
+                  </p>
+                </div>
+              </div>
+
+              {/* Parágrafo final — resolução de gargalos */}
+              <div className="border-l-2 border-outline-variant pl-6">
+                <p className="text-on-surface-variant font-sans text-base leading-relaxed">
+                  <Trans i18nKey="about.dev_section.footer">
+                    Não apenas implemento funcionalidades — <span className="text-on-surface font-semibold">resolvo gargalos de infraestrutura e dados</span>,
+                    garantindo que o back-end e o front-end se comuniquem com latência mínima e máxima segurança.
+                    Seja criando plugins customizados, integrando APIs complexas ou desenvolvendo <span className="text-on-surface font-semibold">SaaS sob medida</span>, meu foco é sempre a
+                    eficiência, a testabilidade e o impacto direto nos resultados do negócio.
+                  </Trans>
+                </p>
+              </div>
+            </motion.div>
+
           </div>
         </div>
       </section>
@@ -274,13 +363,13 @@ export default function AboutView({ setView }: { setView: (v: View) => void }) {
            className="bg-primary text-on-primary py-32 px-8 flex flex-col items-center justify-center"
         >
           <h2 className="text-4xl md:text-7xl font-display font-black uppercase tracking-tighter max-w-4xl mx-auto leading-none mb-12">
-            SUA EMPRESA EXIGE <br/> SOLUÇÕES DE VERDADE.
+            {t('about.cta.title_line1')} <br/> {t('about.cta.title_line2')}
           </h2>
           <button 
               onClick={handleContactClick}
               className="bg-black text-white font-sans font-bold px-12 py-5 uppercase tracking-widest text-xs transition-transform hover:scale-105 inline-block"
             >
-              Iniciar Conversa
+              {t('about.cta.btn')}
             </button>
         </motion.div>
       </section>

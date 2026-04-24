@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, CheckCircle2, ExternalLink } from 'lucide-react';
+import { useTranslation, Trans } from 'react-i18next';
 import { View } from '../types';
 import BorderGlow from '../BorderGlow';
 import { projects } from '../data';
@@ -15,6 +16,7 @@ import solarPrint6 from '../solar-prints/screencapture-solar-zaac-br-2026-04-09-
 import solarPrint7 from '../solar-prints/screencapture-solar-zaac-br-2026-04-09-00_51_45.webp';
 
 export default function SolarCaseView({ setView }: { setView: (v: View) => void }) {
+  const { t } = useTranslation();
   useEffect(() => { window.scrollTo(0, 0); }, []);
   return (
     <div className="px-8 max-w-5xl mx-auto pb-40">
@@ -23,16 +25,16 @@ export default function SolarCaseView({ setView }: { setView: (v: View) => void 
           onClick={() => setView('portfolio')}
           className="text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors mb-12 flex items-center gap-2"
         >
-          <ArrowRight className="rotate-180" size={16} /> Voltar para Portfólio
+          <ArrowRight className="rotate-180" size={16} /> {t('solarCase.btn_back')}
         </button>
-        <span className="text-[0.6rem] uppercase tracking-widest text-primary font-bold block mb-6">Case de Desenvolvimento</span>
+        <span className="text-[0.6rem] uppercase tracking-widest text-primary font-bold block mb-6">{t('solarCase.badge')}</span>
         <motion.h1 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-5xl md:text-8xl font-display font-black tracking-tighter leading-none mb-8"
         >
-          SOLAR <br/>
-          <span className="text-primary">DA COLINA.</span>
+          {t('solarCase.title1')} <br/>
+          <span className="text-primary">{t('solarCase.title2')}</span>
         </motion.h1>
         
         <div className="flex items-center gap-4 mt-8">
@@ -42,7 +44,7 @@ export default function SolarCaseView({ setView }: { setView: (v: View) => void 
             rel="noopener noreferrer"
             className="border border-outline-variant text-on-surface font-bold px-8 py-4 uppercase tracking-widest text-[0.65rem] transition-colors hover:bg-white hover:text-black hover:border-white inline-flex items-center gap-2"
           >
-            Acessar Sistema <ExternalLink size={14} />
+            {t('solarCase.btn_system')} <ExternalLink size={14} />
           </a>
         </div>
       </header>
@@ -57,16 +59,16 @@ export default function SolarCaseView({ setView }: { setView: (v: View) => void 
       </motion.div>
 
       <section className="mb-32 border-b border-outline-variant pb-32">
-        <h2 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-20 text-center">Interface & Operação</h2>
+        <h2 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-20 text-center">{t('solarCase.interface_title')}</h2>
         <div className="space-y-32">
           {[
-            { img: solarPrint1, title: "Painel de Controle", desc: "Visão geral em tempo real de ocupação, faturamento e atividades recentes em um layout limpo." },
-            { img: solarPrint2, title: "Calendário de Disponibilidade", desc: "Gestão visual e intuitiva para controle de reservas e bloqueio estratégico de datas." },
-            { img: solarPrint3, title: "Gestão de Acomodações", desc: "Cadastro e edição detalhada de unidades (Camping, Suítes, Chalés) com controle de capacidade." },
-            { img: solarPrint4, title: "Fluxo de Check-in & Out", desc: "Monitoramento diário de chegadas e partidas, garantindo fluidez na recepção e limpeza." },
-            { img: solarPrint5, title: "Gestão de Preços", desc: "Configuração de inteligência tarifária para altas temporadas e feriados programados." },
-            { img: solarPrint6, title: "Diretório de Usuários", desc: "Controle rigoroso de permissões e logs de auditoria para monitorar toda a atividade administrativa." },
-            { img: solarPrint7, title: "Interface Pública de Reserva", desc: "Fluxo minimalista focado em conversão para que o cliente reserve sua estadia em segundos." }
+            { img: solarPrint1 },
+            { img: solarPrint2 },
+            { img: solarPrint3 },
+            { img: solarPrint4 },
+            { img: solarPrint5 },
+            { img: solarPrint6 },
+            { img: solarPrint7 }
           ].map((item, index) => (
             <motion.div 
               key={index}
@@ -77,13 +79,13 @@ export default function SolarCaseView({ setView }: { setView: (v: View) => void 
             >
               <div className={`md:col-span-8 ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}>
                 <div className="border border-outline-variant p-2 bg-surface shadow-xl">
-                  <img src={item.img} alt={item.title} loading="lazy" decoding="async" className="w-full h-auto object-cover" />
+                  <img src={item.img} alt={t(`solarCase.screens.${index}.title`)} loading="lazy" decoding="async" className="w-full h-auto object-cover" />
                 </div>
               </div>
               <div className={`md:col-span-4 space-y-6 ${index % 2 === 0 ? 'md:order-2' : 'md:order-1'}`}>
                 <div className="text-primary font-display font-black text-4xl">0{index + 1}</div>
-                <h3 className="text-2xl font-display font-bold uppercase tracking-tight">{item.title}</h3>
-                <p className="text-on-surface-variant font-sans text-sm leading-relaxed">{item.desc}</p>
+                <h3 className="text-2xl font-display font-bold uppercase tracking-tight">{t(`solarCase.screens.${index}.title`)}</h3>
+                <p className="text-on-surface-variant font-sans text-sm leading-relaxed">{t(`solarCase.screens.${index}.desc`)}</p>
               </div>
             </motion.div>
           ))}
@@ -93,32 +95,35 @@ export default function SolarCaseView({ setView }: { setView: (v: View) => void 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-16 item-start">
         <div className="md:col-span-8 space-y-16">
           <section>
-            <h2 className="text-2xl font-display font-bold mb-6 uppercase border-l-2 border-primary pl-4">Propósito</h2>
+            <h2 className="text-2xl font-display font-bold mb-6 uppercase border-l-2 border-primary pl-4">{t('solarCase.purpose_title')}</h2>
             <p className="text-on-surface-variant font-sans text-lg leading-relaxed">
-              Facilitar o processo de reserva para os clientes e centralizar toda a operação administrativa em uma única interface intuitiva e potente. O Solar da Colina é uma plataforma full-stack moderna desenvolvida para a gestão completa de reservas e administração de uma propriedade de hospedagem de alto fluxo.
+              {t('solarCase.purpose_desc')}
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-display font-bold mb-6 uppercase border-l-2 border-primary pl-4">Motor Administrativo (Admin)</h2>
+            <h2 className="text-2xl font-display font-bold mb-6 uppercase border-l-2 border-primary pl-4">{t('solarCase.admin_title')}</h2>
             <ul className="space-y-4 font-sans text-on-surface-variant leading-relaxed">
-              <li><strong className="text-on-surface">Dashboard de Visão Geral:</strong> Métricas instantâneas sobre taxas de ocupação, faturamento e tarefas do dia.</li>
-              <li><strong className="text-on-surface">Calendário Interativo:</strong> Gestão visual e rápida para visualizar disponibilidade na linha do tempo e forçar bloqueios.</li>
-              <li><strong className="text-on-surface">Quadro Kanban:</strong> Sistema ágil para movimentar reservadas baseadas no status (Pendente, Negociação, Check-in, Finalizado).</li>
-              <li><strong className="text-on-surface">Gestão de Preços Dinâmicos:</strong> Setup de regras tarifárias baseadas em alta/baixa temporada e taxas adicionais escaláveis.</li>
-              <li><strong className="text-on-surface">Sincronização iCal:</strong> Integração com plataformas externas como Airbnb e Booking.com.</li>
-              <li><strong className="text-on-surface">Gestão de Check-in:</strong> Fluxo extremamente agilizado para recepção rápida dos hóspedes e emissão de notas.</li>
-              <li><strong className="text-on-surface">Controle de Usuários:</strong> Gerenciamento de acessos e permissões para garantir o controle da operação.</li>
+              {[0, 1, 2, 3, 4, 5, 6].map(i => (
+                <li key={i}>
+                  <Trans i18nKey={`solarCase.admin_items.${i}`}>
+                    <strong className="text-on-surface">Label:</strong> Descrição.
+                  </Trans>
+                </li>
+              ))}
             </ul>
           </section>
 
           <section>
-            <h2 className="text-2xl font-display font-bold mb-6 uppercase border-l-2 border-primary pl-4">Experiência do Cliente</h2>
+            <h2 className="text-2xl font-display font-bold mb-6 uppercase border-l-2 border-primary pl-4">{t('solarCase.client_title')}</h2>
             <ul className="space-y-4 font-sans text-on-surface-variant leading-relaxed">
-              <li><strong className="text-on-surface">Catálogo de Acomodações:</strong> Visualização rica e detalhada de opções de hospedagem, incluindo Camping, Quartos e Chalés.</li>
-              <li><strong className="text-on-surface">Sistema de Reserva:</strong> Fluxo minimalista e rápido, desde a escolha da data no calendário até a confirmação do pagamento final.</li>
-              <li><strong className="text-on-surface">Painel do Cliente:</strong> Histórico de faturas, reservas antigas e administração fluída do perfil logado.</li>
-              <li><strong className="text-on-surface">Políticas & Suporte:</strong> Páginas informativas sobre regras da casa e canais de contato com a equipe.</li>
+              {[0, 1, 2, 3].map(i => (
+                <li key={i}>
+                  <Trans i18nKey={`solarCase.client_items.${i}`}>
+                    <strong className="text-on-surface">Label:</strong> Descrição.
+                  </Trans>
+                </li>
+              ))}
             </ul>
           </section>
         </div>
@@ -130,13 +135,13 @@ export default function SolarCaseView({ setView }: { setView: (v: View) => void 
           onClick={() => setView('portfolio')}
           className="text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2"
         >
-          <ArrowRight className="rotate-180" size={14} /> Todos os Projetos
+          <ArrowRight className="rotate-180" size={14} /> {t('solarCase.btn_all')}
         </button>
         <button
           onClick={() => setView('zaac-case')}
           className="bg-primary text-on-primary font-bold px-10 py-4 uppercase tracking-widest text-xs transition-colors hover:bg-white hover:text-black flex items-center gap-3"
         >
-          Próximo Case: Zaac Platform <ArrowRight size={14} />
+          {t('solarCase.btn_next')} <ArrowRight size={14} />
         </button>
       </div>
     </div>

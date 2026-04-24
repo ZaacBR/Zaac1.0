@@ -4,6 +4,7 @@
  */
 
 import React, { useState, useEffect, Suspense, lazy } from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'motion/react';
 import BorderGlow from './BorderGlow';
 import profilePhoto from './GuilhermeFerreiraPB.webp';
@@ -72,39 +73,44 @@ const ZaacCaseView = lazy(() => import('./views/ZaacCaseView'));
 export default function App() {
   const [currentView, setCurrentView] = useState<View>('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t, i18n } = useTranslation();
+
+  const toggleLanguage = () => {
+    const nextLang = i18n.language.startsWith('pt') ? 'en' : 'pt';
+    i18n.changeLanguage(nextLang);
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
     
     // Update document title for SEO
-    const baseTitle = "Guilherme Izaac | Soluções Digitais";
     switch(currentView) {
       case 'home':
-        document.title = baseTitle;
+        document.title = t('titles.base');
         break;
       case 'portfolio':
-        document.title = `Portfólio | ${baseTitle}`;
+        document.title = t('titles.portfolio');
         break;
       case 'about':
-        document.title = `Sobre Mim | ${baseTitle}`;
+        document.title = t('titles.about');
         break;
       case 'experiences':
-        document.title = `Experiências | ${baseTitle}`;
+        document.title = t('titles.experiences');
         break;
       case 'contact':
-        document.title = `Contato | ${baseTitle}`;
+        document.title = t('titles.contact');
         break;
       case 'solar-case':
-        document.title = `Case: Solar da Colina | ${baseTitle}`;
+        document.title = t('titles.solar_case');
         break;
       case 'zaac-case':
-        document.title = `Case: Zaac Platform | ${baseTitle}`;
+        document.title = t('titles.zaac_case');
         break;
       case 'thanks':
-        document.title = `Obrigado | ${baseTitle}`;
+        document.title = t('titles.thanks');
         break;
     }
-  }, [currentView]);
+  }, [currentView, i18n.language, t]);
 
   const NavLink = ({ view, label }: { view: View, label: string }) => (
     <button 
@@ -140,10 +146,10 @@ export default function App() {
           </button>
           
           <div className="hidden md:flex gap-12 items-center">
-            <NavLink view="home" label="Início" />
-            <NavLink view="portfolio" label="Portfólio" />
-            <NavLink view="about" label="Sobre" />
-            <NavLink view="experiences" label="Experiências" />
+            <NavLink view="home" label={t('nav.home')} />
+            <NavLink view="portfolio" label={t('nav.portfolio')} />
+            <NavLink view="about" label={t('nav.about')} />
+            <NavLink view="experiences" label={t('nav.experiences')} />
           </div>
 
           <div className="flex items-center gap-4">
@@ -170,13 +176,20 @@ export default function App() {
               onClick={() => setCurrentView('contact')}
               className="hidden md:block bg-primary text-on-primary font-sans text-xs font-bold uppercase tracking-widest px-8 py-3 transition-colors hover:bg-white hover:text-black"
             >
-              Contato
+              {t('nav.contact')}
+            </button>
+            <button
+              onClick={toggleLanguage}
+              className="hidden md:flex items-center justify-center font-sans text-xs font-bold uppercase tracking-widest px-3 py-3 border border-outline-variant text-on-surface hover:border-primary hover:text-primary transition-colors"
+              aria-label="Toggle language"
+            >
+              {i18n.language.startsWith('pt') ? 'EN' : 'PT'}
             </button>
             <button 
               className="md:hidden text-on-surface hover:text-primary transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-expanded={isMenuOpen}
-              aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
+              aria-label={isMenuOpen ? t('nav.close_menu') : t('nav.open_menu')}
             >
               {isMenuOpen ? <X size={28} aria-hidden="true" /> : <Menu size={28} aria-hidden="true" />}
             </button>
@@ -193,15 +206,21 @@ export default function App() {
               className="md:hidden bg-white/[0.03] backdrop-blur-2xl border-b border-white/[0.05] flex flex-col"
             >
               <div className="p-8 flex flex-col gap-8 items-start">
-                <NavLink view="home" label="Início" />
-                <NavLink view="portfolio" label="Portfólio" />
-                <NavLink view="about" label="Sobre" />
-                <NavLink view="experiences" label="Experiências" />
+                <NavLink view="home" label={t('nav.home')} />
+                <NavLink view="portfolio" label={t('nav.portfolio')} />
+                <NavLink view="about" label={t('nav.about')} />
+                <NavLink view="experiences" label={t('nav.experiences')} />
                 <button 
                   onClick={() => { setCurrentView('contact'); setIsMenuOpen(false); }}
                   className="bg-primary text-on-primary text-xs font-bold uppercase tracking-widest px-8 py-4 w-full"
                 >
-                  Contato
+                  {t('nav.contact')}
+                </button>
+                <button
+                  onClick={toggleLanguage}
+                  className="flex items-center justify-center font-sans text-xs font-bold uppercase tracking-widest px-8 py-4 w-full border border-outline-variant text-on-surface"
+                >
+                  {i18n.language.startsWith('pt') ? 'Switch to English' : 'Mudar para Português'}
                 </button>
                 {/* Social links no mobile */}
                 <div className="flex gap-6 pt-2 border-t border-outline-variant/30 w-full">
@@ -270,18 +289,18 @@ export default function App() {
           <div>
             <div className="text-4xl font-display font-black text-on-surface mb-6 tracking-tighter">ZAAC<span className="text-primary">.</span></div>
             <p className="text-xs uppercase tracking-widest text-on-surface-variant leading-relaxed max-w-sm font-sans">
-              Soluções Digitais de Extremo Contraste.<br />
-              © 2026 Todos os direitos reservados.
+              {t('footer.subtitle')}<br />
+              {t('footer.rights')}
             </p>
           </div>
           <div className="flex gap-16">
             <div className="flex flex-col gap-4">
-              <span className="text-[0.6rem] font-bold text-on-surface-variant tracking-[0.2em] uppercase">Contato</span>
+              <span className="text-[0.6rem] font-bold text-on-surface-variant tracking-[0.2em] uppercase">{t('footer.contact')}</span>
               <a href="mailto:Guilherme@zaac.com.br" className="text-xs uppercase tracking-widest font-bold text-on-surface hover:text-primary transition-colors">Email</a>
               <a href="https://wa.me/556192439505" target="_blank" rel="noopener noreferrer" className="text-xs uppercase tracking-widest font-bold text-on-surface hover:text-primary transition-colors">WhatsApp</a>
             </div>
             <div className="flex flex-col gap-4">
-              <span className="text-[0.6rem] font-bold text-on-surface-variant tracking-[0.2em] uppercase">Redes</span>
+              <span className="text-[0.6rem] font-bold text-on-surface-variant tracking-[0.2em] uppercase">{t('footer.networks')}</span>
               <a href="https://www.linkedin.com/in/guilherme-izaac/" target="_blank" rel="noopener noreferrer" className="text-xs uppercase tracking-widest font-bold text-on-surface hover:text-primary transition-colors">LinkedIn</a>
               <a href="https://github.com/ZaacBR" target="_blank" rel="noopener noreferrer" className="text-xs uppercase tracking-widest font-bold text-on-surface hover:text-primary transition-colors">GitHub</a>
             </div>
