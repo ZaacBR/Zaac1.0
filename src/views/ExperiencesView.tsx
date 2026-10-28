@@ -140,7 +140,7 @@ export default function ExperiencesView({ setView }: { setView: (v: View) => voi
         <div className="space-y-0">
           {[
             {
-              period: 'Ago 2023 – Presente',
+              period: 'Ago 2025 – Presente',
               role: 'Gestor de Projetos de Automação & CRM',
               company: 'Zera Company',
               color: 'primary',

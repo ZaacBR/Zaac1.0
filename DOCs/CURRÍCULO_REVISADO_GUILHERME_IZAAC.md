@@ -32,7 +32,7 @@ Capacidade de atuar como ponte entre times técnicos, squads de marketing e stak
 ## EXPERIÊNCIA PROFISSIONAL
 
 ### Gestor de Projetos de Automação e CRM
-**Zera Company** · Brasília, DF · *Agosto 2023 – Presente*
+**Zera Company** · Brasília, DF · *Agosto 2025 – Presente*
 
 **Gestão de Projetos e Implementações**
 Coordenação end-to-end de implementações completas de sistemas CRM e automação (Kommo, Pipedrive, Agendor) para clientes B2B, garantindo cumprimento de cronogramas, escopo técnico e satisfação média de 9.2/10.
@@ -67,8 +67,6 @@ Design e desenvolvimento de projetos web utilizando HTML5, CSS3, React e WordPre
 
 ### Analista de Tecnologia da Informação | Suporte Técnico Avançado & Infraestrutura
 **Kamaleão Color** · Brasília, DF · *Fevereiro 2023 – Maio 2024 (1 ano e 4 meses)*
-
-*(Exercido em paralelo à atuação na Zera Company, iniciada em Agosto 2023)*
 
 **Gerenciamento de Sistemas & Infraestrutura**
 Administração, manutenção e segurança de plataformas tecnológicas para múltiplos departamentos de uma empresa de grande porte.
