@@ -16,7 +16,7 @@
 2. **Navegação por `useState`** (`App.tsx:74`): nenhuma página tem URL própria. Não dá para compartilhar `/cases/solar`, e o Google só indexa a home.
 3. **SEO quebrado:** `og-preview.png` é referenciado no `index.html` mas não existe no repo. Sem `robots.txt`, `sitemap.xml` ou JSON-LD.
 4. **Promessas sem prova:** a copy fala de Linux, Docker, ERP/CRM, "−70% de carga", "9.2/10", "15–22% de conversão", mas os cases mostram só sites. Nenhum número tem fonte ou contexto.
-5. **Inconsistências:** Zera Company aparece como *Ago 2023* no currículo e *Ago 2025* no `copy_base_site.md`; e-mail `Guilherme@` vs `guilherme@`.
+5. **Inconsistências:** ~~Zera Company: Ago 2023 × Ago 2025~~ (resolvido: **Ago 2025**); e-mail unificado em `guilherme.zaac@gmail.com` (resolvido).
 6. **Higiene do repositório:** `package.json` com nome `react-example`, `README.md` vazio, `.env.example` com texto do AI Studio, `Server/` (build antigo com 6 bundles) versionado, imagens duplicadas (`SolarPrints/` e `src/solar-prints/`, `zaacdesignprints/` e `src/zaac-prints/`), dependências possivelmente sem uso (`@google/genai`, `express`).
 7. **Tom da copy:** "impiedoso", "severo", "destruindo retrabalho" repetido em muitos blocos. Cansa e soa genérico; um recrutador/cliente quer a história concreta.
 
@@ -41,7 +41,7 @@ Seus projetos em `Montseguro/` são a melhor prova técnica que você tem. Trans
 
 | ID | Case novo | O que contar | Prio | Esf. |
 |---|---|---|---|---|
-| 2.1 | **Disparos** — plataforma de e-mail marketing (PHP + React + AWS SES) | Plano com 100+ itens (S/B/P/F/D/N), 118 testes de backend + 112 de frontend, assinatura de webhooks SNS, A/B real, segmentação dinâmica, LGPD. É o case que prova engenharia séria | 🔴 | G |
+| 2.1 | **Disparos** — plataforma de e-mail marketing (PHP + React + AWS SES) | **Em produção na Montseguro, substituindo o RD Station: de um plano de ~R$ 7 mil/mês para menos de R$ 1 mil/mês (economia de mais de 85%).** Esse é o título do case. Depois: plano com 100+ itens (S/B/P/F/D/N), 118 testes de backend + 112 de frontend, assinatura de webhooks SNS, A/B real, segmentação dinâmica, LGPD. Pedir ao financeiro o valor exato e o período para citar com fonte (item 3.1) | 🔴 | G |
 | 2.2 | **MontFlow** — orquestrador visual de fluxos de WhatsApp (Cloud API) | Editor de grafos (`@xyflow/react`), motor de fluxo, webhooks, cron. Casa direto com seu discurso de "n8n/automação" | 🔴 | G |
 | 2.3 | **Sistema de Alertas** — PWA com Web Push | Fases, PWA, VAPID, cron. Mostrar como você planeja em fases (gestão + código). Só publicar depois de concluir mais fases, ou como "em desenvolvimento" | 🟠 | M |
 | 2.4 | **Landing pages por operadora + relatório CRO** | Pesquisa de mercado (Meta/Google Ads Library), 4 ganchos de conversão, antes/depois. Une marketing + dev | 🟠 | M |

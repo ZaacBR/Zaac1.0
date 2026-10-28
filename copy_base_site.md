@@ -61,7 +61,7 @@ Este arquivo contém todos os textos base do site de portfólio de Guilherme Iza
 - **04 | Soluções Sob Medida (Web):** A entrega palpável da lógica. Projetamos interfaces proprietárias (não prateleiras) em aplicações modernas, ultrarrápidas, que consomem e alimentam as engrenagens de infraestrutura, mantendo navegação focada em design UX de alto contraste.
 
 ### Seção: Trajetória Profissional
-- **Gestor de Projetos de Automação e CRM (Zera Company / Agt 2025 – Presente):** Liderança direta em +15 projetos de implementação B2B (Kommo, Pipedrive, Agendor) garantindo 100% de on-time delivery. Estruturação de automação avançada com n8n (+1000 registros diários) sincronizada via webhooks, REST APIs com integrações ativas entre Sheets, WhatsApp IA e CRM. Aumento severo da eficiência operacional do cliente destruindo retrabalho de dados em 95%. Desenvolvimento e performance de Landing Pages focadas em otimização de conversão.
+- **Gestor de Projetos de Automação e CRM (Zera Company / Ago 2025 – Presente):** Liderança direta em +15 projetos de implementação B2B (Kommo, Pipedrive, Agendor) garantindo 100% de on-time delivery. Estruturação de automação avançada com n8n (+1000 registros diários) sincronizada via webhooks, REST APIs com integrações ativas entre Sheets, WhatsApp IA e CRM. Aumento severo da eficiência operacional do cliente destruindo retrabalho de dados em 95%. Desenvolvimento e performance de Landing Pages focadas em otimização de conversão.
 - **Analista de T.I & Suporte Avançado (Kamaleão Color / Fev 2023 – Mai 2024):** Gerenciamento da infraestrutura de rede, administração de roteamento, manutenção preventiva e segurança de servidores para a fábrica física. Migração complexa de ecossistemas E-commerce e ERP envolvendo bases com +30.000 clientes.
 - **Engenheiro Code/Low-Code & Dev Web (Projetos Paralelos / Autônomo):** Construção de ecossistemas digitais que não dependem de uma única stack. Orquestração complexa de dados corporativos no Google Sheets cruzificados com dashboards e APIs consumidas pelo Make/Zapier/n8n.
 
@@ -79,7 +79,7 @@ Este arquivo contém todos os textos base do site de portfólio de Guilherme Iza
 ## 4. PÁGINA: CONTATO
 
 - **Título Principal:** INICIAR PROJETO.
-- **Email Direto:** Guilherme@zaac.com.br
+- **Email Direto:** guilherme.zaac@gmail.com
 - **WhatsApp:** +55 (61) 9243-9505
 - **Local base:** Brasília - DF / Global
 - **Disponibilidade:** Agenda aberta para novos projetos. Resposta média em até 4 horas úteis.

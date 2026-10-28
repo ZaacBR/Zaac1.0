@@ -58,7 +58,7 @@ export default function ContactView({ setView }: { setView: (v: View) => void })
 
           <div className="space-y-8">
             <a
-              href="mailto:Guilherme@zaac.com.br"
+              href="mailto:guilherme.zaac@gmail.com"
               className="flex items-start gap-4 group"
             >
               <div className="w-10 h-10 border border-outline-variant flex items-center justify-center group-hover:border-primary group-hover:text-primary transition-colors shrink-0">
@@ -66,7 +66,7 @@ export default function ContactView({ setView }: { setView: (v: View) => void })
               </div>
               <div>
                 <div className="text-[0.6rem] tracking-[0.2em] uppercase text-on-surface-variant font-bold mb-1">{t('contact.email_label')}</div>
-                <span className="font-sans font-medium text-on-surface group-hover:text-primary transition-colors">Guilherme@zaac.com.br</span>
+                <span className="font-sans font-medium text-on-surface group-hover:text-primary transition-colors">guilherme.zaac@gmail.com</span>
               </div>
             </a>
 

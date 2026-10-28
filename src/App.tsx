@@ -307,7 +307,7 @@ export default function App() {
           <div className="flex gap-16">
             <div className="flex flex-col gap-4">
               <span className="text-[0.6rem] font-bold text-on-surface-variant tracking-[0.2em] uppercase">{t('footer.contact')}</span>
-              <a href="mailto:Guilherme@zaac.com.br" className="text-xs uppercase tracking-widest font-bold text-on-surface hover:text-primary transition-colors">Email</a>
+              <a href="mailto:guilherme.zaac@gmail.com" className="text-xs uppercase tracking-widest font-bold text-on-surface hover:text-primary transition-colors">Email</a>
               <a href="https://wa.me/556192439505" target="_blank" rel="noopener noreferrer" className="text-xs uppercase tracking-widest font-bold text-on-surface hover:text-primary transition-colors">WhatsApp</a>
             </div>
             <div className="flex flex-col gap-4">
