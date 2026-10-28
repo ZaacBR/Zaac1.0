@@ -24,6 +24,16 @@
     "zaac_case": "Case: Zaac Platform | Guilherme Izaac | Digital Solutions",
     "thanks": "Thank You | Guilherme Izaac | Digital Solutions"
   },
+  "descriptions": {
+    "home": "Project manager with expertise in web development (React, TypeScript), automation (n8n, REST APIs) and CRM. 15+ B2B implementations delivered on time.",
+    "portfolio": "B2B project case studies: a camping reservation ecosystem, a management platform, conversion landing pages and n8n/CRM automations.",
+    "about": "Guilherme Izaac: project manager with a systems analysis background, working with CRM (Kommo, Pipedrive), n8n automation and React/TypeScript web development.",
+    "experiences": "Professional journey of Guilherme Izaac: automation and CRM project management, front-end development and IT infrastructure.",
+    "contact": "Reach Guilherme Izaac by email or WhatsApp for CRM, automation and custom web development projects.",
+    "solar-case": "Solar da Colina case study: a full-stack booking system integrated with Airbnb and Booking.com to centralize a camping's operations.",
+    "zaac-case": "Zaac Platform case study: a management dashboard for clients, services, professionals and reports, built with React and TypeScript.",
+    "thanks": "Message sent. I will get back to you soon."
+  },
   "home": {
     "hero": {
       "subtitle": "Robust Solutions, Real Results",

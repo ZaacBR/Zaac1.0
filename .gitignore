@@ -6,3 +6,6 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Build de produção (gerado por npm run build)
+Server/

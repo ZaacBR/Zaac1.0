@@ -5,9 +5,9 @@
 
 import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import BorderGlow from './BorderGlow';
-import profilePhoto from './GuilhermeFerreiraPB.webp';
 import DarkVeil from './DarkVeil';
 // Logos
 import logoBarra from './logos/Logo-Barra-scaled.png';
@@ -58,6 +58,11 @@ import {
   MessageCircle
 } from 'lucide-react';
 import { View, Project, Service } from './types';
+import { SITE_URL, viewPaths, viewFromPath, noIndexViews } from './routes';
+
+function setMeta(selector: string, attr: string, value: string) {
+  document.head.querySelector(selector)?.setAttribute(attr, value);
+}
 
 // Data layers and views are extracted for code splitting
 
@@ -71,7 +76,11 @@ const SolarCaseView = lazy(() => import('./views/SolarCaseView'));
 const ZaacCaseView = lazy(() => import('./views/ZaacCaseView'));
 
 export default function App() {
-  const [currentView, setCurrentView] = useState<View>('home');
+  const location = useLocation();
+  const navigate = useNavigate();
+  const routeView = viewFromPath(location.pathname);
+  const currentView: View = routeView ?? 'home';
+  const setCurrentView = (view: View) => navigate(viewPaths[view]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { t, i18n } = useTranslation();
 
@@ -83,44 +92,46 @@ export default function App() {
   useEffect(() => {
     window.scrollTo(0, 0);
     
-    // Update document title for SEO
-    switch(currentView) {
-      case 'home':
-        document.title = t('titles.base');
-        break;
-      case 'portfolio':
-        document.title = t('titles.portfolio');
-        break;
-      case 'about':
-        document.title = t('titles.about');
-        break;
-      case 'experiences':
-        document.title = t('titles.experiences');
-        break;
-      case 'contact':
-        document.title = t('titles.contact');
-        break;
-      case 'solar-case':
-        document.title = t('titles.solar_case');
-        break;
-      case 'zaac-case':
-        document.title = t('titles.zaac_case');
-        break;
-      case 'thanks':
-        document.title = t('titles.thanks');
-        break;
-    }
+    // Title, description e URL canônica por rota (SEO e preview de links)
+    const titleKeys: Record<View, string> = {
+      home: 'titles.base',
+      portfolio: 'titles.portfolio',
+      about: 'titles.about',
+      experiences: 'titles.experiences',
+      contact: 'titles.contact',
+      'solar-case': 'titles.solar_case',
+      'zaac-case': 'titles.zaac_case',
+      thanks: 'titles.thanks',
+    };
+    const title = t(titleKeys[currentView]);
+    const description = t(`descriptions.${currentView}`);
+    const url = SITE_URL + (viewPaths[currentView] === '/' ? '/' : viewPaths[currentView]);
+
+    document.title = title;
+    document.documentElement.lang = i18n.language.startsWith('pt') ? 'pt-BR' : 'en';
+    setMeta('meta[name="description"]', 'content', description);
+    setMeta('meta[name="robots"]', 'content', noIndexViews.includes(currentView) ? 'noindex, nofollow' : 'index, follow');
+    setMeta('link[rel="canonical"]', 'href', url);
+    setMeta('meta[property="og:title"]', 'content', title);
+    setMeta('meta[property="og:description"]', 'content', description);
+    setMeta('meta[property="og:url"]', 'content', url);
+    setMeta('meta[name="twitter:title"]', 'content', title);
+    setMeta('meta[name="twitter:description"]', 'content', description);
   }, [currentView, i18n.language, t]);
 
   const NavLink = ({ view, label }: { view: View, label: string }) => (
-    <button 
-      onClick={() => { setCurrentView(view); setIsMenuOpen(false); }}
+    <Link
+      to={viewPaths[view]}
+      onClick={() => setIsMenuOpen(false)}
       className={`font-sans text-xs tracking-widest uppercase transition-colors duration-300 hover:text-primary ${currentView === view ? 'text-primary' : 'text-on-surface'}`}
       aria-current={currentView === view ? 'page' : undefined}
     >
       {label}
-    </button>
+    </Link>
   );
+
+  // Rota desconhecida: volta para a home
+  if (!routeView) return <Navigate to="/" replace />;
 
   return (
     <div className="min-h-screen flex flex-col selection:bg-primary selection:text-on-primary">
@@ -137,13 +148,13 @@ export default function App() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-white/[0.03] backdrop-blur-2xl border-b border-white/[0.05]">
         <div className="max-w-7xl mx-auto px-8 py-4 flex justify-between items-center">
-          <button 
+          <Link
+            to="/"
             className="text-2xl font-display font-black text-on-surface tracking-tighter cursor-pointer flex items-center gap-2"
-            onClick={() => setCurrentView('home')}
             aria-label="Página Inicial"
           >
             <div>ZAAC<span className="text-primary">.</span></div>
-          </button>
+          </Link>
           
           <div className="hidden md:flex gap-12 items-center">
             <NavLink view="home" label={t('nav.home')} />
