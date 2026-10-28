@@ -79,7 +79,7 @@ Este arquivo contém todos os textos base do site de portfólio de Guilherme Iza
 ## 4. PÁGINA: CONTATO
 
 - **Título Principal:** INICIAR PROJETO.
-- **Email Direto:** Guilherme@zaac.com.br
+- **Email Direto:** guilherme.zaac@gmail.com
 - **WhatsApp:** +55 (61) 9243-9505
 - **Local base:** Brasília - DF / Global
 - **Disponibilidade:** Agenda aberta para novos projetos. Resposta média em até 4 horas úteis.

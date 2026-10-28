@@ -16,7 +16,7 @@
 2. **Navegação por `useState`** (`App.tsx:74`): nenhuma página tem URL própria. Não dá para compartilhar `/cases/solar`, e o Google só indexa a home.
 3. **SEO quebrado:** `og-preview.png` é referenciado no `index.html` mas não existe no repo. Sem `robots.txt`, `sitemap.xml` ou JSON-LD.
 4. **Promessas sem prova:** a copy fala de Linux, Docker, ERP/CRM, "−70% de carga", "9.2/10", "15–22% de conversão", mas os cases mostram só sites. Nenhum número tem fonte ou contexto.
-5. **Inconsistências:** ~~Zera Company: Ago 2023 × Ago 2025~~ (resolvido: **Ago 2025**); e-mail `Guilherme@` vs `guilherme@` (em aberto).
+5. **Inconsistências:** ~~Zera Company: Ago 2023 × Ago 2025~~ (resolvido: **Ago 2025**); e-mail unificado em `guilherme.zaac@gmail.com` (resolvido).
 6. **Higiene do repositório:** `package.json` com nome `react-example`, `README.md` vazio, `.env.example` com texto do AI Studio, `Server/` (build antigo com 6 bundles) versionado, imagens duplicadas (`SolarPrints/` e `src/solar-prints/`, `zaacdesignprints/` e `src/zaac-prints/`), dependências possivelmente sem uso (`@google/genai`, `express`).
 7. **Tom da copy:** "impiedoso", "severo", "destruindo retrabalho" repetido em muitos blocos. Cansa e soa genérico; um recrutador/cliente quer a história concreta.
 

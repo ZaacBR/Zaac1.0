@@ -2,7 +2,7 @@
 **Gestor de Projetos | Tecnologia · CRM · Automação · Marketing Digital**
 
 📍 Brasília, DF  
-📧 [guilherme@zaac.com.br]  
+📧 [guilherme.zaac@gmail.com]  
 📱 +55 (61) 9243-9505  
 🌐 zaac.com.br  
 🔗 linkedin.com/in/guilherme-izaac  
